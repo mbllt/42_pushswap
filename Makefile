@@ -1,7 +1,6 @@
 NAME			= push_swap
 
-SRCS_FILES		= pushswap.c \
-				  operations/swap.c \
+SRCS_FILES		= operations/swap.c \
 				  operations/swap_ab.c \
 				  operations/push.c \
 				  operations/rotate.c \
@@ -10,8 +9,8 @@ SRCS_FILES		= pushswap.c \
 				  operations/rev_rotate_ab.c \
 				  utils/check_double.c\
 				  utils/init_global.c\
-				  sort.c\
-				  find_median.c\
+				  utils/free_global.c\
+				  pushswap.c \
 
 OBJS_DIR		= .objs
 
@@ -45,7 +44,7 @@ normal			= \033[0m
 
 all				: $(NAME)
 
-$(NAME)			: $(EXE_LIBFT) $(OBJS)
+$(NAME)			:  $(EXE_LIBFT) $(OBJS)
 					$(CC) -o $(NAME) $^ $(EXE_LIBFT)
 					@echo "$(yellow)Pushswap is $(green)ready$(normal)"
 

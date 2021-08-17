@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mballet <ballet.mia.6@gmail.com>           +#+  +:+       +#+         #
+#    By: mballet <mballet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 15:34:43 by mballet           #+#    #+#              #
-#    Updated: 2021/08/12 15:47:33 by mballet          ###   ########lyon.fr    #
+#    Updated: 2021/08/17 13:37:49 by mballet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,17 +49,18 @@ SRCS_FILES		= ft_atoi.c\
 				  ft_strmapi.c\
 				  ft_putnbr_base.c\
 				  ft_realloc.c\
-				  ft_lstnew.c\
-				  ft_lstadd_front.c\
-				  ft_lstsize.c\
-				  ft_lstlast.c\
-				  ft_lstadd_back.c\
-				  ft_lstdelone.c\
-				  ft_lstclear.c\
-				  ft_lstiter.c\
-				  ft_lstmap.c\
-				  printlst.c\
-				  lst_cpy.c\
+				  lst/ft_lstnew.c\
+				  lst/ft_lstadd_front.c\
+				  lst/ft_lstsize.c\
+				  lst/ft_lstlast.c\
+				  lst/ft_lstadd_back.c\
+				  lst/ft_lstdelone.c\
+				  lst/ft_lstclear.c\
+				  lst/ft_lstiter.c\
+				  lst/ft_lstmap.c\
+				  lst/printlst.c\
+				  lst/lst_cpy.c\
+				  ft_strdup_double.c\
 
 OBJS_DIR		= .objs
 
@@ -69,7 +70,7 @@ OBJS			= $(addprefix $(OBJS_DIR)/,$(SRCS_FILES:.c=.o))
 
 SRCS			= $(addprefix $(SRCS_DIR)/,$(SRCS_FILES))
 
-PATH_OBJS		= list
+PATH_OBJS		= lst
 
 HEADERS			= include/libft.h
 
@@ -93,10 +94,11 @@ $(EXE)			: $(OBJS)
 					ar rcs $@ $^
 					@echo "$(yellow)Libft $(normal)is $(green)ready$(normal)"
 
-$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c $(HEADERS)
-					mkdir -p $(OBJS_DIR) $(addprefix $(OBJS_DIR)/,$(PATH_OBJS))
+$(OBJS_DIR)/%.o	: $(SRCS_DIR)/%.c $(HEADERS) | $(OBJS_DIR)
 					$(CC) $(CFLAGS) -o $@ -c $<
 
+$(OBJS_DIR)		:
+					mkdir -p $(OBJS_DIR) $(addprefix $(OBJS_DIR)/,$(PATH_OBJS))
 clean			:
 					$(RM) $(OBJS)
 

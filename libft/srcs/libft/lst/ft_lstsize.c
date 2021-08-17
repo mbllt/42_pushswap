@@ -1,22 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mballet <mballet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 14:42:59 by mballet           #+#    #+#             */
-/*   Updated: 2020/12/07 15:59:54 by mballet          ###   ########lyon.fr   */
+/*   Created: 2020/12/07 13:52:48 by mballet           #+#    #+#             */
+/*   Updated: 2021/08/17 14:03:25 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int	ft_lstsize_int(t_list_int *lst)
 {
-	if (!lst)
-		return (lst);
-	while (lst->next != NULL)
+	int		i;
+
+	i = 0;
+	while (lst != NULL)
+	{
 		lst = lst->next;
-	return (lst);
+		i++;
+	}
+	return (i);
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	int		i;
+
+	i = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

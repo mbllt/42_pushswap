@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 12:54:09 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/09 16:41:25 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/17 16:26:15 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }				t_list;
+
+typedef struct s_list_int
+{
+	int					content;
+	struct s_list_int	*next;
+}				t_list_int;
+
 long int		ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
 int				ft_isalnum(int c);
@@ -60,14 +67,22 @@ char			*ft_itoa(int n);
 char			**ft_split(char const *s, char c);
 char			*ft_strmapi(char const *s, char(*f)(unsigned int, char));
 t_list			*ft_lstnew(void *content);
+t_list_int		*ft_lstnew_int(int content);
 void			ft_lstadd_front(t_list **alst, t_list *new);
+void			ft_lstadd_front_int(t_list_int **alst, t_list_int *new);
 int				ft_lstsize(t_list *lst);
+int				ft_lstsize_int(t_list_int *lst);
 t_list			*ft_lstlast(t_list *lst);
+t_list_int		*ft_lstlast_int(t_list_int *lst);
 void			ft_lstadd_back(t_list **alst, t_list *new);
+void			ft_lstadd_back_int(t_list_int **alst, t_list_int *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
+void			ft_lstdelone_int(t_list_int *lst, void (*del)(int));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
+void			ft_lstclear_int(t_list_int **lst, void (*del)(int));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-void			printlst(t_list *lst);
+void			ft_lstiter_int(t_list_int *lst, void (*f)(int));
+void			printlst_int(t_list_int *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 void			ft_putnbr_base(int nbr, char *base);

@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mballet <mballet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 09:18:45 by mballet           #+#    #+#             */
-/*   Updated: 2020/12/14 13:40:13 by mballet          ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 13:59:32 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+t_list_int	*ft_lstnew_int(int content)
+{
+	t_list_int	*new;
+
+	new = NULL;
+	new = malloc(sizeof(t_list_int));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
+}
 
 t_list	*ft_lstnew(void *content)
 {
