@@ -6,13 +6,13 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 09:18:45 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/17 13:59:32 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/18 18:07:51 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list_int	*ft_lstnew_int(int content)
+t_list_int	*ft_lstnew_int(long int *content)
 {
 	t_list_int	*new;
 

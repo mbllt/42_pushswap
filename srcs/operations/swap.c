@@ -1,8 +1,8 @@
 #include "pushswap.h"
 
-void	swap(t_list **lst, t_global *global)
+void	swap(t_list_int **lst, t_global *global)
 {
-	t_list	temp;
+	t_list_int	temp;
 
 	if (*lst && (*lst)->next)
 	{

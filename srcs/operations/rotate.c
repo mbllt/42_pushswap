@@ -1,13 +1,13 @@
 #include "pushswap.h"
 
-void	rotate(t_list **lst, t_global *global)
+void	rotate(t_list_int **lst, t_global *global)
 {
-	t_list	*tmp;
-	t_list	*tmp_bis;
+	t_list_int	*tmp;
+	t_list_int	*tmp_bis;
 
 	tmp = (*lst);
 	tmp_bis = (*lst)->next;
-	ft_lstadd_back(lst, tmp);
+	ft_lstadd_back_int(lst, tmp);
 	tmp->next = NULL;
 	*lst = tmp_bis;
 	global->nbr_ope++;

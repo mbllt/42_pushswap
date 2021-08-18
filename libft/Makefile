@@ -6,7 +6,7 @@
 #    By: mballet <mballet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 15:34:43 by mballet           #+#    #+#              #
-#    Updated: 2021/08/17 13:37:49 by mballet          ###   ########.fr        #
+#    Updated: 2021/08/17 16:51:40 by mballet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ SRCS_FILES		= ft_atoi.c\
 
 OBJS_DIR		= .objs
 
-SRCS_DIR		= srcs/libft
+SRCS_DIR		= srcs/
 
 OBJS			= $(addprefix $(OBJS_DIR)/,$(SRCS_FILES:.c=.o))
 

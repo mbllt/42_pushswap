@@ -4,7 +4,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <limits.h>
-# include "../libft/libft.h"
+# include "../libft/include/libft.h"
 
 typedef struct	s_global
 {
@@ -15,20 +15,20 @@ typedef struct	s_global
 	char	**argv;
 }				t_global;
 
-void	printlst(t_list *lst);
-void	del(void *content);
-int		get_check_lst(t_list **lsta, t_list **lstb, t_global *global);
-void	swap(t_list **lst, t_global *global);
-void	swap_ab(t_list **lsta, t_list **lstb, t_global *global);
-int		push(t_list **ontop, t_list **from, t_global *global);
-void	rotate(t_list **lst, t_global *global);
-void	rotate_ab(t_list **lsta, t_list **lstb, t_global *global);
-void	rev_rotate(t_list **lst, t_global *global);
-void	rev_rotate_ab(t_list **lsta, t_list **lstb, t_global *global);
-int		sort(t_list **lsta, t_list **lstb, t_global *global);
+void	printlst(t_list_int *lst);
+void	del(long int *content);
+int		get_check_lst(t_list_int **lsta, t_list_int **lstb, t_global *global);
+void	swap(t_list_int **lst, t_global *global);
+void	swap_ab(t_list_int **lsta, t_list_int **lstb, t_global *global);
+int		push(t_list_int **ontop, t_list_int **from, t_global *global);
+void	rotate(t_list_int **lst, t_global *global);
+void	rotate_ab(t_list_int **lsta, t_list_int **lstb, t_global *global);
+void	rev_rotate(t_list_int **lst, t_global *global);
+void	rev_rotate_ab(t_list_int **lsta, t_list_int **lstb, t_global *global);
+int		sort(t_list_int **lsta, t_list_int **lstb, t_global *global);
 int		init_global(t_global *global, int argcc, char **argv);
 void	free_global(t_global *global);
-int		check_double(t_list *lst);
-void	sorting(t_list *lst, t_global *global);
+int		check_double(t_list_int *lst);
+void	sorting(t_list_int *lst, t_global *global);
 
 #endif

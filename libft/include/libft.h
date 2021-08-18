@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 12:54:09 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/17 16:26:15 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/18 18:07:14 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_list
 
 typedef struct s_list_int
 {
-	int					content;
+	long int			*content;
 	struct s_list_int	*next;
 }				t_list_int;
 
@@ -67,7 +67,7 @@ char			*ft_itoa(int n);
 char			**ft_split(char const *s, char c);
 char			*ft_strmapi(char const *s, char(*f)(unsigned int, char));
 t_list			*ft_lstnew(void *content);
-t_list_int		*ft_lstnew_int(int content);
+t_list_int		*ft_lstnew_int(long int *content);
 void			ft_lstadd_front(t_list **alst, t_list *new);
 void			ft_lstadd_front_int(t_list_int **alst, t_list_int *new);
 int				ft_lstsize(t_list *lst);
@@ -77,16 +77,19 @@ t_list_int		*ft_lstlast_int(t_list_int *lst);
 void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstadd_back_int(t_list_int **alst, t_list_int *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
-void			ft_lstdelone_int(t_list_int *lst, void (*del)(int));
+void			ft_lstdelone_int(t_list_int *lst, void (*del)(long int *));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
-void			ft_lstclear_int(t_list_int **lst, void (*del)(int));
+void			ft_lstclear_int(t_list_int **lst, void (*del)(long int *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-void			ft_lstiter_int(t_list_int *lst, void (*f)(int));
+void			ft_lstiter_int(t_list_int *lst, void (*f)(long int *));
 void			printlst_int(t_list_int *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+int				lst_cpy(t_list *from, t_list **cpy);
+int				lst_cpy_int(t_list_int *from, t_list_int **cpy);
 void			ft_putnbr_base(int nbr, char *base);
 char			*ft_realloc(char *str, size_t size);
 void			ft_double_free(char **str, int size_first);
+char			**ft_strdup_double(char **str, int size);
 
 #endif

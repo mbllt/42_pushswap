@@ -1,9 +1,9 @@
 #include "pushswap.h"
 
-void	swap_ab(t_list **lsta, t_list **lstb, t_global *global)
+void	swap_ab(t_list_int **lsta, t_list_int **lstb, t_global *global)
 {
-	t_list	tempa;
-	t_list	tempb;
+	t_list_int	tempa;
+	t_list_int	tempb;
 
 	if (*lsta && (*lsta)->next)
 	{

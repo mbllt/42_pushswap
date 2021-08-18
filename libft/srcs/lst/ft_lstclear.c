@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 17:42:38 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/17 13:59:32 by mballet          ###   ########.fr       */
+/*   Created: 2020/12/07 18:30:47 by mballet           #+#    #+#             */
+/*   Updated: 2021/08/18 18:07:36 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone_int(t_list_int *lst, void (*del)(int))
+void	ft_lstclear_int(t_list_int **lst, void (*del)(long int *))
 {
-	if (lst)
+	t_list_int	*temp;
+
+	if (*lst != NULL)
 	{
-		del(lst->content);
-		free(lst);
+		while (*lst != NULL)
+		{
+			temp = (*lst)->next;
+			ft_lstdelone_int(*lst, del);
+			*lst = temp;
+		}
 	}
 }
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	if (lst)
+	t_list	*temp;
+
+	if (*lst != NULL)
 	{
-		del(lst->content);
-		free(lst);
+		while (*lst != NULL)
+		{
+			temp = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			*lst = temp;
+		}
 	}
 }

@@ -22,7 +22,7 @@ SRCS			= $(addprefix $(SRCS_DIR)/,$(SRCS_FILES))
 
 PATH_OBJS		= operations utils
 
-HEADERS			= include/pushswap.h libft/libft.h
+INCLUDE			= include/pushswap.h libft/include/libft.h
 
 CC				= gcc
 
@@ -51,7 +51,7 @@ $(NAME)			:  $(EXE_LIBFT) $(OBJS)
 $(EXE_LIBFT)	:
 					$(MAKE) -C$(LIBFT_FILES) -s
 
-$(OBJS_DIR)/%.o	: $(SRCS_DIR)/%.c $(HEADERS) | $(OBJS_DIR)
+$(OBJS_DIR)/%.o	: $(SRCS_DIR)/%.c $(INCLUDE) | $(OBJS_DIR)
 					$(CC) $(CFLAGS) -o $@ -c $<
 
 $(OBJS_DIR)		:
