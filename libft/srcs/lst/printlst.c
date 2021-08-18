@@ -4,7 +4,7 @@ void	printlst_int(t_list_int *lst)
 {
 	while (lst != NULL)
 	{
-		printf("%d\n", (long int)lst->content);
+		printf("%ld\n", *(lst->content));
 		lst = lst->next;
 	}
 }

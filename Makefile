@@ -7,10 +7,12 @@ SRCS_FILES		= operations/swap.c \
 				  operations/rotate_ab.c \
 				  operations/rev_rotate.c \
 				  operations/rev_rotate_ab.c \
-				  utils/check_double.c\
-				  utils/init_global.c\
-				  utils/free_global.c\
+				  utils/check_double.c \
+				  utils/init_global.c \
+				  utils/free_global.c \
+				  utils/find_median.c \
 				  pushswap.c \
+				  sorting.c \
 
 OBJS_DIR		= .objs
 
@@ -32,7 +34,7 @@ SANFLAGS		= -g3 -fsanitize=address
 
 LIBFT_FILES		= libft
 
-EXE_LIBFT		= libft/libft.a
+NAME_LIBFT		= libft/libft.a
 
 RM				= /bin/rm -rf
 
@@ -44,11 +46,11 @@ normal			= \033[0m
 
 all				: $(NAME)
 
-$(NAME)			:  $(EXE_LIBFT) $(OBJS)
-					$(CC) -o $(NAME) $^ $(EXE_LIBFT)
+$(NAME)			:  $(NAME_LIBFT) $(OBJS)
+					$(CC) -o $(NAME) $^ $(NAME_LIBFT)
 					@echo "$(yellow)Pushswap is $(green)ready$(normal)"
 
-$(EXE_LIBFT)	:
+$(NAME_LIBFT)	:
 					$(MAKE) -C$(LIBFT_FILES) -s
 
 $(OBJS_DIR)/%.o	: $(SRCS_DIR)/%.c $(INCLUDE) | $(OBJS_DIR)
@@ -64,7 +66,7 @@ cleanlibft		:
 					make -C libft clean
 				
 fclean			: clean cleanlibft
-					$(RM) $(EXE_LIBFT)
+					$(RM) $(NAME_LIBFT)
 					$(RM) $(NAME)
 					$(RM) $(OBJS_DIR)
 

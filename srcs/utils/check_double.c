@@ -10,7 +10,7 @@ int	check_double(t_list_int *lst)
 		tmp = lst->next;
 		while (tmp)
 		{
-			if (lst->content == tmp->content)
+			if (*(lst->content) == *(tmp->content))
 				return (0);
 			tmp = tmp->next;
 		}
