@@ -2,12 +2,9 @@
 
 int	check_double(t_list_int *lst)
 {
-	int		size;
 	t_list_int	*tmp;
 
-	size = ft_lstsize_int(lst);
-	if (!(lst_cpy_int(lst, &tmp)))
-		return (0);
+	tmp = lst;
 	while (lst)
 	{
 		tmp = lst->next;
@@ -19,6 +16,5 @@ int	check_double(t_list_int *lst)
 		}
 		lst = lst->next;
 	}
-	ft_lstclear_int(&tmp, del);
 	return (1);
 }
