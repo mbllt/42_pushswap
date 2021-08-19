@@ -1,14 +1,12 @@
 #include "pushswap.h"
 
-#define STR (*str)
-
-static void	fill_in_str(t_list_int *lst, int **str)
+static void	fill_in_str(t_list_int *actual, int **str)
 {
-	int	i;
 	t_list_int	*tmp;
+	int	i;
 
+	tmp = actual;
 	i = 0;
-	tmp = lst;
 	while (tmp != NULL)
 	{
 		STR[i] = *(tmp->content);
@@ -37,25 +35,27 @@ static void	sort_str(int **str, t_global *global)
 		j = 0;
 		while (j < global->argc - 1)
 		{
-			// printf("i :%d && j :%d\n", STR[i], STR[j]);
 			if (STR[i] < STR[j])
-			{
 				swap_str(str, i, j);
-			}
 			j++;
 		}
 		i++;
 	}
 }
 
-int	find_median(t_list_int *lst, t_global *global, int **str)
+int	find_median(t_list_int *actual, t_global *global, int **str)
 {
-	(void)lst;
-	(void)str;
-	fill_in_str(lst, str);
+	int	size;
+	int	nbr;
+
+	fill_in_str(actual, str);
 	sort_str(str, global);
-	printf("STR :\n");
-	for (int i = 0; i < ft_lstsize_int(lst); i++)
-		printf("%d\n", (*str)[i]);
-	return (global->median);
+	size = global->argc - 1;
+	if (size <= 3)
+		return (size);
+	if (size % 2)
+		size--;
+	nbr = (size / 2);
+	global->median = (*str)[nbr];
+	return (nbr);
 }

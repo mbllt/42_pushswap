@@ -10,9 +10,9 @@ SRCS_FILES		= operations/swap.c \
 				  utils/check_double.c \
 				  utils/init_global.c \
 				  utils/free_global.c \
-				  utils/find_median.c \
 				  pushswap.c \
 				  sorting.c \
+				  find_median.c \
 
 OBJS_DIR		= .objs
 

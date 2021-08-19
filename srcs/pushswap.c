@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 04:23:39 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/19 12:09:15 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/19 19:35:21 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (-1);
 	}
-	printf("LIST a :\n");
+	printf("\033[32mLIST a :\n");
 	printlst_int(lsta);
 	ft_lstclear_int(&lsta, del);
 	free_global(&global);

@@ -6,6 +6,8 @@
 # include <limits.h>
 # include "../libft/include/libft.h"
 
+#define STR (*str)
+
 typedef struct	s_global
 {
 	int	nbr_ope;
