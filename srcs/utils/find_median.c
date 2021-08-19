@@ -17,28 +17,31 @@ static void	fill_in_str(t_list_int *lst, int **str)
 	}
 }
 
-// static void	swap_str(int **str, int i, int j)
-// {
-// 	int	tmp;
+static void	swap_str(int **str, int i, int j)
+{
+	int	tmp;
 
-// 	tmp = STR[i];
-// 	STR[i] = STR[j];
-// 	STR[j] = tmp;
-// }
+	tmp = STR[i];
+	STR[i] = STR[j];
+	STR[j] = tmp;
+}
 
-static void	sort_str(int **str)
+static void	sort_str(int **str, t_global *global)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (STR[i])
+	while (i < global->argc - 1)
 	{
 		j = 0;
-		while (STR[j])
+		while (j < global->argc - 1)
 		{
-			// if (STR[i] > STR[j])
-				// swap_str(str, i, j);
+			// printf("i :%d && j :%d\n", STR[i], STR[j]);
+			if (STR[i] < STR[j])
+			{
+				swap_str(str, i, j);
+			}
 			j++;
 		}
 		i++;
@@ -50,8 +53,8 @@ int	find_median(t_list_int *lst, t_global *global, int **str)
 	(void)lst;
 	(void)str;
 	fill_in_str(lst, str);
-	sort_str(str);
-	printf("\nSTR :\n");
+	sort_str(str, global);
+	printf("STR :\n");
 	for (int i = 0; i < ft_lstsize_int(lst); i++)
 		printf("%d\n", (*str)[i]);
 	return (global->median);
