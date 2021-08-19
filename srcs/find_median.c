@@ -43,7 +43,7 @@ static void	sort_str(int **str, t_global *global)
 	}
 }
 
-int	find_median(t_list_int *actual, t_global *global, int **str)
+void	find_median(t_list_int *actual, t_global *global, int **str)
 {
 	int	size;
 	int	nbr;
@@ -51,11 +51,6 @@ int	find_median(t_list_int *actual, t_global *global, int **str)
 	fill_in_str(actual, str);
 	sort_str(str, global);
 	size = global->argc - 1;
-	if (size <= 3)
-		return (size);
-	if (size % 2)
-		size--;
 	nbr = (size / 2);
 	global->median = (*str)[nbr];
-	return (nbr);
 }

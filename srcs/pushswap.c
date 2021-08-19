@@ -6,16 +6,11 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 04:23:39 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/19 19:35:21 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/19 20:45:01 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-
-void	del(long int *content)
-{
-	free(content);
-}
 
 int	get_lst(t_list_int **lsta, int i, char **argv)
 {
@@ -67,24 +62,20 @@ int	main(int argc, char **argv)
 
 	lsta = NULL;
 	lstb = NULL;
-	if (!init_global(&global, argc))
+	if (argc > 1)
 	{
-		free_global(&global);
-		return (-1);
+		if (!init_global(&global, argc))
+		{
+			return (clear(&lsta, &lsta, &global, -1));
+		}
+		if (!get_check_lst(&lsta, &global, argv) ||
+			!(sorting(global.argc - 1, &lsta, &lstb, &global)))
+		{
+			return (clear(&lsta, &lsta, &global, -1));
+		}
 	}
-	if (argc == 1)
-		return (0);
-	if (!get_check_lst(&lsta, &global, argv) ||
-		!(sorting(&lsta, &lstb, &global)))
-	{
-		ft_lstclear_int(&lsta, del);
-		free_global(&global);	
-		write(1, "Error\n", 6);
-		return (-1);
-	}
-	printf("\033[32mLIST a :\n");
-	printlst_int(lsta);
-	ft_lstclear_int(&lsta, del);
-	free_global(&global);
-	return (0);
+	// printf("\033[32mLIST a :\n");
+	// printlst_int(lsta);
+	// printf("nbr_ope %d\n", global.nbr_ope);
+	return (clear(&lsta, &lsta, &global, 0));
 }

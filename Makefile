@@ -10,6 +10,7 @@ SRCS_FILES		= operations/swap.c \
 				  utils/check_double.c \
 				  utils/init_global.c \
 				  utils/free_global.c \
+				  utils/clear.c \
 				  pushswap.c \
 				  sorting.c \
 				  find_median.c \

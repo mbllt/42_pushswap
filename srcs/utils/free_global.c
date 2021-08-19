@@ -2,5 +2,6 @@
 
 void	free_global(t_global *global)
 {
-	free(global->str);
+	if (global->str)
+		free(global->str);
 }

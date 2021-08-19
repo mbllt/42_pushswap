@@ -32,16 +32,14 @@ static void	sort(t_list_int **actual, t_global *global, int nbr_sorting)
 	return ;
 }
 
-int sorting(t_list_int **actual, t_list_int **other, t_global *global)
+int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *global)
 {
-	int nbr_sorting;
-
-	nbr_sorting = find_median(*actual, global, &(global->str));
 	if (nbr_sorting <= 3)
 	{
 		sort(actual, global, nbr_sorting);
 		return (1);
 	}
+	find_median(*actual, global, &(global->str));
 	if (global->argc % 2)
 	{
 		global->median--;
