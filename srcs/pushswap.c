@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 04:23:39 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/18 21:41:14 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/19 12:09:15 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	del(long int *content)
 	free(content);
 }
 
-int	get_lst(t_list_int **lsta, int argc, char **argv)
+int	get_lst(t_list_int **lsta, int i, char **argv)
 {
 	t_list_int	*tmp;
 	long int	num;
 	long int	*nbr;
 
-	num = ft_atoi(argv[argc]);
+	num = ft_atoi(argv[i]);
 	if (num > INT_MAX || num < INT_MIN)
 		return (0);
 	nbr = NULL;
@@ -34,21 +34,26 @@ int	get_lst(t_list_int **lsta, int argc, char **argv)
 	tmp = ft_lstnew_int(nbr);
 	if (!tmp)
 		return (0);
-	ft_lstadd_front_int(lsta, tmp);
+	ft_lstadd_back_int(lsta, tmp);
 	return (1);
 }
 	
 int	get_check_lst(t_list_int **lsta, t_global *global, char **argv)
 {
-	int	argc;
+	int	i;
+	int	num;
 
-	argc = global->argc;
-	if (argc > 1)
+	if (global->argc > 1)
 	{
-		while (argc > 1 && is_strnum(argv[--argc]))
-			if (!(get_lst(lsta, argc, argv)))
+		i = 1;
+		num = is_strnum(argv[i]);
+		while (num && i < global->argc)
+		{
+			if (!(get_lst(lsta, i, argv)))
 				return (0);
-		if (argc > 1 || !check_double(*lsta))
+			i++;
+		}		
+		if (!num || !check_double(*lsta))
 			return (0);
 	}
 	return (1);
@@ -62,7 +67,7 @@ int	main(int argc, char **argv)
 
 	lsta = NULL;
 	lstb = NULL;
-	if (!init_global(&global, argc, lsta))
+	if (!init_global(&global, argc))
 	{
 		free_global(&global);
 		return (-1);
@@ -77,8 +82,8 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (-1);
 	}
-	// printf("list a :\n");
-	// printlst_int(lsta);
+	printf("LIST a :\n");
+	printlst_int(lsta);
 	ft_lstclear_int(&lsta, del);
 	free_global(&global);
 	return (0);

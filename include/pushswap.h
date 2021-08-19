@@ -25,7 +25,7 @@ void	rotate(t_list_int **lst, t_global *global);
 void	rotate_ab(t_list_int **lsta, t_list_int **lstb, t_global *global);
 void	rev_rotate(t_list_int **lst, t_global *global);
 void	rev_rotate_ab(t_list_int **lsta, t_list_int **lstb, t_global *global);
-int		init_global(t_global *global, int argcc, t_list_int *lst);
+int		init_global(t_global *global, int argc);
 void	free_global(t_global *global);
 int		check_double(t_list_int *lst);
 int 	sorting(t_list_int **lsta, t_list_int **lstb, t_global *global);
