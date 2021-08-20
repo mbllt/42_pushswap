@@ -43,7 +43,7 @@ static void	sort_str(int **str, t_global *global)
 	}
 }
 
-void	find_median(t_list_int *actual, t_global *global, int **str)
+void	find_median(int nbr_sorting, t_list_int *actual, t_global *global, int **str) /* fait qie je fasse tout ca que dans les nbr_sorting premier elements */
 {
 	int	size;
 	int	nbr;
@@ -53,4 +53,6 @@ void	find_median(t_list_int *actual, t_global *global, int **str)
 	size = global->argc - 1;
 	nbr = (size / 2);
 	global->median = (*str)[nbr];
+	if (size / 2)
+		global->median--;
 }

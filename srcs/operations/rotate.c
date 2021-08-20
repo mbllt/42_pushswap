@@ -11,4 +11,5 @@ void	rotate(t_list_int **lst, t_global *global)
 	tmp->next = NULL;
 	*lst = tmp_bis;
 	global->nbr_ope++;
+	write(1, "ra/rb\n", 6);
 }

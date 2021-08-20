@@ -31,7 +31,8 @@ int			init_global(t_global *global, int argc);
 void		free_global(t_global *global);
 int			check_double(t_list_int *lst);
 int 		sorting(int nbr_sorting, t_list_int **lsta, t_list_int **lstb, t_global *global);
-void		find_median(t_list_int *lst, t_global *global, int **str);
+void		find_median(int nbr_sorting, t_list_int *lst, t_global *global, int **str);
 short int	clear(t_list_int **lsta, t_list_int **lstb, t_global *global, int i);
+void		seperate(t_list_int **actual, t_list_int **other, t_global *global);
 
 #endif

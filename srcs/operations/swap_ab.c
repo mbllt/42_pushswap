@@ -18,4 +18,5 @@ void	swap_ab(t_list_int **lsta, t_list_int **lstb, t_global *global)
 		(*lstb)->next->content = tempb.content;
 	}
 	global->nbr_ope++;
+	write(1, "ss\n", 3);
 }

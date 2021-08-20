@@ -13,4 +13,5 @@ void	rev_rotate(t_list_int **lst, t_global *global)
 	ft_lstadd_front_int(lst, tmp);
 	(*lst)->next = tmp_bis;
 	global->nbr_ope++;
+	write(1, "rra/rrb\n", 8);
 }

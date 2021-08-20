@@ -39,19 +39,18 @@ int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *
 		sort(actual, global, nbr_sorting);
 		return (1);
 	}
-	find_median(*actual, global, &(global->str));
-	if (global->argc % 2)
+	find_median(nbr_sorting, *actual, global, &(global->str));
+	seperate(actual, other, global);
+	if ((global->argc - 1) % 2)	/* odd */
 	{
-		global->median--;
-		/* send actual des lst->content plus petit que mediane */
 		(void)other;
 	}
-	else
+	else					/* pair */
 	{
+		sorting(nbr_sorting / 2, actual, other, global);
 		/* send actual des lst->content plus petit que mediane et mediane
 		donc pas meme nombre dans actual et other */
 	}
-	printf("median :%d\n", global->median);
-	printf("nbr_sorting :%d\n", nbr_sorting);
+	printf("nbr_sorting / 2 :%d\n", nbr_sorting / 2);
     return (1);
 }

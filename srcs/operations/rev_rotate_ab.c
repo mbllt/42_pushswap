@@ -22,4 +22,5 @@ void	rev_rotate_ab(t_list_int **lsta, t_list_int **lstb, t_global *global)
 	ft_lstadd_front_int(lstb, tmpb);
 	(*lstb)->next = tmp_bisb;
 	global->nbr_ope++;
+	write(1, "rrr\n", 4);
 }

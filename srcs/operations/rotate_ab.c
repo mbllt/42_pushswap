@@ -18,4 +18,5 @@ void	rotate_ab(t_list_int **lsta, t_list_int **lstb, t_global *global)
 	tmpb->next = NULL;
 	(*lstb) = tmp_bisb;
 	global->nbr_ope++;
+	write(1, "rr\n", 3);
 }
