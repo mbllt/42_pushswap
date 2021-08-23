@@ -19,65 +19,34 @@ static void	fill_in_str(t_list_int *actual, int **str, int nbr_sorting)
 	STR[i] = 0;
 }
 
-static int	*rotate_str(int **str, int i, int j, int nbr_sorting)
-{
-	int	*tmp;
-	int	len;
-
-	tmp = malloc(sizeof(char) * nbr_sorting + 1);
-	if (!tmp)
-		return (NULL);
-	len = 0;
-	while (len < j)
-	{
-		tmp[len] = STR[len];
-		len++;
-	}
-	tmp[len] = STR[i];
-	printf("str[j] %d\n", STR[j]);
-	len = j + 1;
-	while (j < i)
-	{
-		tmp[len] = STR[j];
-		len++;
-		j++;
-	}
-	while (len < nbr_sorting)
-	{
-		tmp[len] = STR[len];
-		len++;
-	}
-	tmp[len] = 0;
-	// free(*str);
-	// for (int i = 0;i < nbr_sorting;i++)
-	// 	printf("tmp : %d\n", tmp[i]);
-	return (tmp);
-}
-
 static int	sort_str(int **str, int nbr_sorting)
 {
-	int	*tmp;
+	// int	*tmp;
 	int	i;
 	int	j;
-	int	small;
+	int	c;
 
-	tmp = malloc(sizeof(char) * nbr_sorting + 1);
-	if (!tmp)
-		return (NULL);
+	// tmp = malloc(sizeof(char) * nbr_sorting + 1);
+	// if (!tmp)
+	// 	return (NULL);
 	i = 0;
-	small = STR[i];
 	while(i < nbr_sorting)
 	{
-		j = 0;
+		j = i + 1;
 		while (j < nbr_sorting)
 		{
-			if (STR[j] < small)
-				small = STR[j];
+			if (STR[i] < STR[j])
+			{
+				c = STR[i];
+				STR[i] = STR[j];
+				STR[j] = c;
+			}
 			j++;
 		}
-		tmp[i] = small;
 		i++;
 	}
+	for (int l = 0;l < nbr_sorting;l++)
+		printf("str :%d\n", STR[l]);
 	return (1);
 }
 
