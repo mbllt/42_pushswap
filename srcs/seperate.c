@@ -1,14 +1,13 @@
 #include "pushswap.h"
 
-void	seperate(t_list_int **actual, t_list_int **other, t_global *global)
+void	seperate(t_list_int **actual, t_list_int **other, t_global *global, int nbr_sorting)
 {
 	t_list_int	*tmp;
-	(void)actual;
-	(void)other;
-	(void)global;
-	printf("median :%d\n", global->median);
+	int			i;
+
+	i = 0;
 	tmp = *actual;
-	while (tmp)
+	while (i < nbr_sorting)
 	{
 		if (*(tmp->content) > global->median)
 		{
@@ -19,5 +18,6 @@ void	seperate(t_list_int **actual, t_list_int **other, t_global *global)
 			push(other, actual, global);
 		}
 		tmp = tmp->next;
+		i++;
 	}
 }

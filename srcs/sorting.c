@@ -34,13 +34,15 @@ static void	sort(t_list_int **actual, t_global *global, int nbr_sorting)
 
 int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *global)
 {
+	// printf("nbr_sorting :%d\n", nbr_sorting);
 	if (nbr_sorting <= 3)
 	{
 		sort(actual, global, nbr_sorting);
 		return (1);
 	}
-	find_median(nbr_sorting, *actual, global, &(global->str));
-	seperate(actual, other, global);
+	if (!(find_median(nbr_sorting, *actual, global, &(global->str))))
+		return (0);
+	seperate(actual, other, global, nbr_sorting);
 	if ((global->argc - 1) % 2)	/* odd */
 	{
 		(void)other;
@@ -51,6 +53,6 @@ int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *
 		/* send actual des lst->content plus petit que mediane et mediane
 		donc pas meme nombre dans actual et other */
 	}
-	printf("nbr_sorting / 2 :%d\n", nbr_sorting / 2);
+	//printf("nbr_sorting / 2 :%d\n", nbr_sorting / 2);
     return (1);
 }
