@@ -13,6 +13,9 @@ int	push(t_list_int **ontop, t_list_int **from, t_global *global)
 	// ft_lstdelone_int(*from, del);  /* quand j'enleve j'ai plus de leaks mais il me dit que je free un truc qui existe pas */
 	*from = temp->next;
 	global->nbr_ope++;
-	write(1, "pa/pb\n", 6);
+	if (global->stack == 0)
+		write(1, "pa\n", 3);
+	if (global->stack == 1)
+		write(1, "pb\n", 3);
 	return (1);
 }

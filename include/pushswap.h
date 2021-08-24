@@ -15,6 +15,7 @@ typedef struct	s_global
 	int	lst_size;
 	int	argc;
 	int	*str;
+	int	stack;
 }				t_global;
 
 void		printlst(t_list_int *lst);
@@ -36,5 +37,7 @@ short int	clear(t_list_int **lsta, t_list_int **lstb, t_global *global, int i);
 void		seperate(t_list_int **actual, t_list_int **other, t_global *global, int nbr_sorting, int stack);
 int long	find_biggest(t_list_int *lst);
 int long	find_smallest(t_list_int *lst);
+int			is_sorted_s_to_b(t_list_int *lst, int nbr_sorting);
+int			is_sorted_b_to_s(t_list_int *lst, int nbr_sorting);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mballet <ballet.mia.6@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 04:23:39 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/23 18:33:56 by mballet          ###   ########lyon.fr   */
+/*   Updated: 2021/08/24 19:58:26 by mballet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,9 @@ int	main(int argc, char **argv)
 	printf("\033[32mLIST b :\n");
 	printlst_int(lstb);
 	printf("\033[35mNombre d'opération :%d\033[0m\n", global.nbr_ope);
+	if (is_sorted_s_to_b(lsta, global.argc - 1))
+		printf("\033[33mIts SORTED\033[0m\n");
+	else
+		printf("\033[30mNot sorted...\033[0m\n");
 	return (clear(&lsta, &lstb, &global, 0));
 }

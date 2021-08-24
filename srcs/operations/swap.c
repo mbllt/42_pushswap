@@ -11,5 +11,8 @@ void	swap(t_list_int **lst, t_global *global)
 		(*lst)->next->content = temp.content;
 	}
 	global->nbr_ope++;
-	write(1, "sa/sb\n", 6);
+	if (global->stack == 0)
+		write(1, "sa\n", 3);
+	if (global->stack == 1)
+		write(1, "sb\n", 3);
 }

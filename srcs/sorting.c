@@ -14,20 +14,23 @@ static void	sort_a(t_list_int **actual, t_global *global, int nbr_sorting)
 			swap(actual, global);
 		return ;
 	}
-	big = find_biggest(*actual);
-	small = find_smallest(*actual);
-	if (small == *((*actual)->next->content) && big == *((*actual)->next->next->content))
+	if (!is_sorted_s_to_b(*actual, nbr_sorting))
 	{
+		big = find_biggest(*actual);
+		small = find_smallest(*actual);
+		if (small == *((*actual)->next->content) && big == *((*actual)->next->next->content))
+		{
+			swap(actual, global);
+			return ;
+		}
+		if (big == *((*actual)->content))
+			swap(actual, global);
+		rotate(actual, global);
 		swap(actual, global);
-		return ;
+		rev_rotate(actual, global);
+		if (small != *((*actual)->content))
+			swap(actual, global);
 	}
-	if (big == *((*actual)->content))
-		swap(actual, global);
-	rotate(actual, global);
-	swap(actual, global);
-	rev_rotate(actual, global);
-	if (small != *((*actual)->content))
-		swap(actual, global);
 	printf("content apres a 0 :%ld\n", *((*actual)->content));
 	printf("content apres a 1 :%ld\n", *((*actual)->next->content));
 	printf("content apres a 2 :%ld\n", *((*actual)->next->next->content));
@@ -47,20 +50,23 @@ static void	sort_b(t_list_int **actual, t_global *global, int nbr_sorting)
 			swap(actual, global);
 		return ;
 	}
-	big = find_biggest(*actual);
-	small = find_smallest(*actual);
-	if (big == *((*actual)->next->content) && small == *((*actual)->next->next->content))
+	if (!is_sorted_b_to_s(*actual, nbr_sorting))
 	{
+		big = find_biggest(*actual);
+		small = find_smallest(*actual);
+		if (big == *((*actual)->next->content) && small == *((*actual)->next->next->content))
+		{
+			swap(actual, global);
+			return ;
+		}
+		if (small == *((*actual)->content))
+			swap(actual, global);
+		rotate(actual, global);
 		swap(actual, global);
-		return ;
+		rev_rotate(actual, global);
+		if (big != *((*actual)->content))
+			swap(actual, global);
 	}
-	if (small == *((*actual)->content))
-		swap(actual, global);
-	rotate(actual, global);
-	swap(actual, global);
-	rev_rotate(actual, global);
-	if (big != *((*actual)->content))
-		swap(actual, global);
 	printf("content apres b 0 :%ld\n", *((*actual)->content));
 	printf("content apres b 1 :%ld\n", *((*actual)->next->content));
 	printf("content apres b 2 :%ld\n", *((*actual)->next->next->content));
@@ -80,6 +86,7 @@ static void	stack_on_a(t_list_int **actual, t_list_int **other, int nbr_sorting,
 
 int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *global, int stack)
 {
+	global->stack = stack;
 	printf("LIST actual : ");
 	printlst_int(*actual);
 	printf("LIST other : ");
