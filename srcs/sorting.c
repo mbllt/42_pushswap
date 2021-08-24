@@ -28,9 +28,9 @@ static void	sort_a(t_list_int **actual, t_global *global, int nbr_sorting)
 	rev_rotate(actual, global);
 	if (small != *((*actual)->content))
 		swap(actual, global);
-	// printf("content apres a 0 :%ld\n", *((*actual)->content));
-	// printf("content apres a 1 :%ld\n", *((*actual)->next->content));
-	// printf("content apres a 2 :%ld\n", *((*actual)->next->next->content));
+	printf("content apres a 0 :%ld\n", *((*actual)->content));
+	printf("content apres a 1 :%ld\n", *((*actual)->next->content));
+	printf("content apres a 2 :%ld\n", *((*actual)->next->next->content));
 }
 
 static void	sort_b(t_list_int **actual, t_global *global, int nbr_sorting)
@@ -38,6 +38,9 @@ static void	sort_b(t_list_int **actual, t_global *global, int nbr_sorting)
 	long int	big;
 	long int	small;
 
+	printf("content avant b 0 :%ld\n", *((*actual)->content));
+	printf("content avant b 1 :%ld\n", *((*actual)->next->content));
+	printf("content avant b 2 :%ld\n", *((*actual)->next->next->content));
 	if (nbr_sorting == 2)
 	{
 		if (*((*actual)->content) < *((*actual)->next->content))
@@ -58,9 +61,9 @@ static void	sort_b(t_list_int **actual, t_global *global, int nbr_sorting)
 	rev_rotate(actual, global);
 	if (big != *((*actual)->content))
 		swap(actual, global);
-	// printf("content b 0 :%ld\n", *((*actual)->content));
-	// printf("content b 1 :%ld\n", *((*actual)->next->content));
-	// printf("content b 2 :%ld\n", *((*actual)->next->next->content));
+	printf("content apres b 0 :%ld\n", *((*actual)->content));
+	printf("content apres b 1 :%ld\n", *((*actual)->next->content));
+	printf("content apres b 2 :%ld\n", *((*actual)->next->next->content));
 }
 
 static void	stack_on_a(t_list_int **actual, t_list_int **other, int nbr_sorting, t_global *global)
@@ -81,7 +84,7 @@ int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *
 	printlst_int(*actual);
 	printf("LIST other : ");
 	printlst_int(*other);
-	// printf("nbr_sorting :%d\n", nbr_sorting);
+	printf("nbr_sorting :%d\n", nbr_sorting);
 	if (nbr_sorting <= 3)
 	{
 		if (stack == 1)
@@ -95,9 +98,11 @@ int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *
 	}
 	if (!(find_median(nbr_sorting, *actual, global, &(global->str))))
 		return (0);
+	printf("median %d\n", global->median);
 	// for (int i = 0;i < nbr_sorting;i++)
 	// 	printf("str : %d\n", global->str[i]);
-	seperate(actual, other, global, nbr_sorting, stack);
+	if (nbr_sorting !=  3)
+		seperate(actual, other, global, nbr_sorting, stack);
 	// printf("nbr_sorting %d et mediane %d\n", nbr_sorting, global->median);
 	// printf("printf lst a:\n");
 	// printlst_int(*actual);
@@ -109,8 +114,14 @@ int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *
 	}
 	else					/* pair */
 	{
-		sorting(nbr_sorting / 2, actual, other, global, 0);
-		sorting(nbr_sorting / 2, other, actual, global, 1);
+		if (stack == 0)
+			sorting(nbr_sorting / 2, actual, other, global, 0);
+		else
+			sorting(nbr_sorting / 2, other, actual, global, 0);
+		if (stack == 0)
+			sorting(nbr_sorting / 2, other, actual, global, 1);
+		else
+			sorting(nbr_sorting / 2, actual, other, global, 1);
 		// printf("nbr_sorting :%d\n", nbr_sorting);
 		/* send actual des lst->content plus petit que mediane et mediane
 		donc pas meme nombre dans actual et other */
