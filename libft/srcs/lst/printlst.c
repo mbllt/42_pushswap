@@ -4,7 +4,8 @@ void	printlst_int(t_list_int *lst)
 {
 	while (lst != NULL)
 	{
-		printf("%ld\n", *(lst->content));
+		printf("%ld, ", *(lst->content));
 		lst = lst->next;
 	}
+	printf("\n");
 }

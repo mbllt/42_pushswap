@@ -11,6 +11,7 @@ SRCS_FILES		= operations/swap.c \
 				  utils/init_global.c \
 				  utils/free_global.c \
 				  utils/clear.c \
+				  utils/find_big_small.c \
 				  pushswap.c \
 				  sorting.c \
 				  find_median.c \

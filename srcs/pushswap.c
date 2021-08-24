@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mballet <ballet.mia.6@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 04:23:39 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/23 12:14:10 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/23 18:33:56 by mballet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,15 +69,15 @@ int	main(int argc, char **argv)
 			return (clear(&lsta, &lstb, &global, -1));
 		}
 		if (!get_check_lst(&lsta, &global, argv) ||
-			!(sorting(global.argc - 1, &lsta, &lstb, &global)))
+			!(sorting(global.argc - 1, &lsta, &lstb, &global, 0)))
 		{
 			return (clear(&lsta, &lstb, &global, -1));
 		}
 	}
-	// printf("\033[32mLIST a :\n");
-	// printlst_int(lsta);
-	// printf("\033[32mLIST b :\n");
-	// printlst_int(lstb);
-	// printf("\033[35mNombre d'opération :%d\033[0m\n", global.nbr_ope);
+	printf("\033[32mLIST a :\n");
+	printlst_int(lsta);
+	printf("\033[32mLIST b :\n");
+	printlst_int(lstb);
+	printf("\033[35mNombre d'opération :%d\033[0m\n", global.nbr_ope);
 	return (clear(&lsta, &lstb, &global, 0));
 }
