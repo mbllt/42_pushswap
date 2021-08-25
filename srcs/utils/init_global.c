@@ -18,5 +18,6 @@ int	init_global(t_global *global, int argc)
 	global->argc = argc;
 	if (!(init_str(global, argc)))
 		return (0);
+	global->changed = 0;
 	return (1);
 }

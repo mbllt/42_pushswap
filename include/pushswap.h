@@ -16,6 +16,7 @@ typedef struct	s_global
 	int	argc;
 	int	*str;
 	int	stack;
+	int	changed;
 }				t_global;
 
 void		printlst(t_list_int *lst);

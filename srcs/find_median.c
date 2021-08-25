@@ -10,7 +10,6 @@ static void	fill_in_str(t_list_int *actual, int **str, int nbr_sorting)
 	while (i < nbr_sorting)
 	{
 		STR[i] = *(tmp->content);
-		// printf("str[%d] :%d\n", i, STR[i]);
 		tmp = tmp->next;
 		i++;
 	}
@@ -49,18 +48,22 @@ int	find_median(int nbr_sorting, t_list_int *actual, t_global *global, int **str
 
 	// printf("nbr_sorting %d\n", nbr_sorting);
 	fill_in_str(actual, str, nbr_sorting);
+	// printf("STR : ");
+	// for (int i = 0;i < nbr_sorting;i++)
+	// 	printf("%d, ", (*str)[i]);
+	// printf("\n");
 	if (!(sort_str(str, nbr_sorting)))
 		return (0);
-	printf("STR : ");
-	for (int i = 0;i < nbr_sorting;i++)
-		printf("%d, ", (*str)[i]);
-	printf("\n");
+	// printf("STR sorted : ");
+	// for (int i = 0;i < nbr_sorting;i++)
+	// 	printf("%d, ", (*str)[i]);
+	// printf("\n");
 	size = nbr_sorting;
-	nbr = size / 2;
-	global->median = (*str)[nbr];
+	nbr = size / 2 + size % 2;
+	global->median = (*str)[nbr - 1];
 	// printf("median :%d\n", global->median);
-	if (size % 2)
-		global->median--;
+	// if (size % 2)
+	// 	global->median--;
 	// printf("median :%d\n", global->median);
 	return (1);
 }
