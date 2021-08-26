@@ -11,7 +11,8 @@ void	seperate(t_list_int **actual, t_list_int **other, t_global *global, int nbr
 	tmp = *actual;
 	while (i < nbr_sorting)
 	{
-		if (*(tmp->content) <= global->median && (stack == 0 || stack == 2))		/* les plus petits vont dans la pile b */
+		// if (*(tmp->content) <= global->median && (stack == 0 || stack == 2))
+		if (*(tmp->content) < global->median && (stack == 0 || stack == 2))
 		{
 			while (*(tmp->content) != *((*actual)->content))
 			{
@@ -20,7 +21,8 @@ void	seperate(t_list_int **actual, t_list_int **other, t_global *global, int nbr
 			}
 			push(other, actual, global);
 		}
-		else if (*(tmp->content) >= global->median && (stack == 1 || stack == 3))	/* les plus grands vont dans la pile a */
+		// else if (*(tmp->content) >= global->median && (stack == 1 || stack == 3))
+		else if (*(tmp->content) > global->median && (stack == 1 || stack == 3))
 		{
 			while (*(tmp->content) != *((*actual)->content))
 			{

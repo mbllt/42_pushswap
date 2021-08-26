@@ -20,7 +20,7 @@ int	is_sorted_b_to_s(t_list_int *lst, int nbr_sorting)
 	int	i;
 
 	i = 0;
-	while (i < nbr_sorting)
+	while (i < nbr_sorting - 1)
 	{
 		if (*(lst->content) < *(lst->next->content))
 			return (0);

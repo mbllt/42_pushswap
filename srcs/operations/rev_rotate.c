@@ -13,8 +13,8 @@ void	rev_rotate(t_list_int **lst, t_global *global)
 	ft_lstadd_front_int(lst, tmp);
 	(*lst)->next = tmp_bis;
 	global->nbr_ope++;
-	if (global->stack == 0)
+	if (global->stack == 0 || global->stack == 3)
 		write(1, "rra\n", 4);
-	if (global->stack == 1)
+	if (global->stack == 1 || global->stack == 2)
 		write(1, "rrb\n", 4);
 }
