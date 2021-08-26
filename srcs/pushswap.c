@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 04:23:39 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/26 15:47:04 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/26 16:18:36 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,11 @@ int	main(int argc, char **argv)
 	// 	printf("\n\033[33mIts SORTED\033[0m\n");
 	// else
 	// 	printf("\033[30mNot sorted...\033[0m\n");
+	printf("LIST A : ");
+	printlst_int(lsta);
+	
+
+	printf("LIST B++ : ");
+	printlst_int(lstb);
 	return (clear(&lsta, &lstb, &global, 0));
 }

@@ -17,5 +17,5 @@ short int	clear(t_list_int **lsta, t_list_int **lstb, t_global *global, int i)
 		write(1, "Error\n", 6);
 		return (-1);
 	}
-	return (1);
+	return (0);
 }
