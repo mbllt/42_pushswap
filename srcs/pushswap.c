@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 04:23:39 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/26 17:12:56 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/26 18:19:08 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@ int	main(int argc, char **argv)
 			return (clear(&lsta, &lstb, &global, -1));
 		}
 	}
-	printf("\033[32mLIST a :\n");
-	printlst_int(lsta);
-	printf("\033[32mLIST b :\n");
-	printlst_int(lstb);
-	printf("\033[35mNombre d'opération :%d\033[0m\n", global.nbr_ope);
-	if (is_sorted_s_to_b(lsta, global.argc - 1))
-		printf("\n\033[33mIts SORTED\033[0m\n");
-	else
-		printf("\033[30mNot sorted...\033[0m\n");
+	// printf("\033[32mLIST a :\n");
+	// printlst_int(lsta);
+	// printf("\033[32mLIST b :\n");
+	// printlst_int(lstb);
+	// printf("\033[35mNombre d'opération :%d\033[0m\n", global.nbr_ope);
+	// if (is_sorted_s_to_b(lsta, global.argc - 1))
+	// 	printf("\n\033[33mIts SORTED\033[0m\n");
+	// else
+	// 	printf("\033[30mNot sorted...\033[0m\n");
 	return (clear(&lsta, &lstb, &global, 0));
 }

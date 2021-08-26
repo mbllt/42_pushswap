@@ -74,14 +74,14 @@ static void	sort_b(t_list_int **actual, t_global *global, int nbr_sorting)
 	// 	printf("content apres b 2 :%ld\n", *((*actual)->next->next->content));
 }
 
-static void	stack_on(t_list_int **actual, t_list_int **other, int nbr_sorting, t_global *global)
+static void	stack_on(t_list_int **actual, t_list_int **other, int nbr_sorting, t_global *global, int stack)
 {
 	int	i;
 
 	i = 0;
 	while (i < nbr_sorting)
 	{
-		push(other, actual, global);
+		push(other, actual, global, stack);
 		i++;
 	}
 }
@@ -89,7 +89,7 @@ static void	stack_on(t_list_int **actual, t_list_int **other, int nbr_sorting, t
 int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *global, int stack)
 {
 	global->stack = stack;
-	// printf("\033[36mnbr_sorting :%d\033[0m\n", nbr_sorting);
+	printf("\033[36mstack :%d\033[0m\n", stack);
 	// if (!(stack % 2))
 	// {
 	// printf("LIST A++ : ");
@@ -119,9 +119,9 @@ int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *
 			sort_a(actual, global, nbr_sorting);
 		}
 		if (stack == 2)
-			stack_on(actual, other, nbr_sorting, global);
+			stack_on(actual, other, nbr_sorting, global, stack);
 		if (stack == 3)
-			stack_on(actual, other, nbr_sorting, global);
+			stack_on(actual, other, nbr_sorting, global, stack);
 		return (1);
 	}
 	if (!(find_median(nbr_sorting, *actual, global, &(global->str), stack)))
@@ -147,8 +147,8 @@ int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *
 		sorting(nbr_sorting / 2, other, actual, global, 2);									// dans b et va dans a
 	}
 	if (stack == 2)
-		stack_on(actual, other, nbr_sorting, global);
+		stack_on(actual, other, nbr_sorting, global, stack);
 	if (stack == 3)
-		stack_on(actual, other, nbr_sorting, global);
+		stack_on(actual, other, nbr_sorting, global, stack);
 	return (1);
 }

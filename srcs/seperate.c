@@ -18,7 +18,7 @@ void	seperate(t_list_int **actual, t_list_int **other, t_global *global, int nbr
 				rotate(actual, global);
 				nbr++;
 			}
-			push(other, actual, global);
+			push(other, actual, global, stack);
 		}
 		else if (*(tmp->content) > global->median && (stack == 1 || stack == 3))
 		{
@@ -27,7 +27,7 @@ void	seperate(t_list_int **actual, t_list_int **other, t_global *global, int nbr
 				rotate(actual, global);
 				nbr++;
 			}
-			push(other, actual, global);
+			push(other, actual, global, stack);
 		}
 		tmp = tmp->next;
 		i++;
