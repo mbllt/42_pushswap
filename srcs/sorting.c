@@ -126,8 +126,8 @@ int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *
 	}
 	if (!(find_median(nbr_sorting, *actual, global, &(global->str), stack)))
 		return (0);
-	// printf("median %d\n", global->median);
 	seperate(actual, other, global, nbr_sorting, stack);
+	// printf("median %d\n", global->median);
 
 	// nbr_sorting -= global->changed;
 	if (!(stack % 2))
