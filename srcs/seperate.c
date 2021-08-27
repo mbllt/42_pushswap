@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   seperate.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/27 17:40:42 by mballet           #+#    #+#             */
+/*   Updated: 2021/08/27 17:40:43 by mballet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
 void	seperate(t_list_int **actual, t_list_int **other, t_global *global, int nbr_sorting, int stack)
@@ -15,7 +27,7 @@ void	seperate(t_list_int **actual, t_list_int **other, t_global *global, int nbr
 		{
 			while (*(tmp->content) != *((*actual)->content))
 			{
-				rotate(actual, global);
+				rotate(actual, global, stack);
 				nbr++;
 			}
 			push(other, actual, global, stack);
@@ -24,7 +36,7 @@ void	seperate(t_list_int **actual, t_list_int **other, t_global *global, int nbr
 		{
 			while (*(tmp->content) != *((*actual)->content))
 			{
-				rotate(actual, global);
+				rotate(actual, global, stack);
 				nbr++;
 			}
 			push(other, actual, global, stack);
@@ -35,7 +47,7 @@ void	seperate(t_list_int **actual, t_list_int **other, t_global *global, int nbr
 	i = 0;
 	while (i < nbr)
 	{
-		rev_rotate(actual, global);
+		rev_rotate(actual, global, stack);
 		i++;
 	}
 }

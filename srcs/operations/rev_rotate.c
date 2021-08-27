@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/27 17:39:42 by mballet           #+#    #+#             */
+/*   Updated: 2021/08/27 17:39:43 by mballet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
-void	rev_rotate(t_list_int **lst, t_global *global)
+void	rev_rotate(t_list_int **lst, t_global *global, int stack)
 {
 	t_list_int	*tmp;
 	t_list_int	*tmp_bis;
@@ -13,8 +25,8 @@ void	rev_rotate(t_list_int **lst, t_global *global)
 	ft_lstadd_front_int(lst, tmp);
 	(*lst)->next = tmp_bis;
 	global->nbr_ope++;
-	if (global->stack == 0 || global->stack == 2)
+	if (stack == 0 || stack == 2)
 		write(1, "rra\n", 4);
-	if (global->stack == 1 || global->stack == 3)
+	if (stack == 1 || stack == 3)
 		write(1, "rrb\n", 4);
 }

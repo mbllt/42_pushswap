@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 04:23:39 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/26 18:19:08 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/27 17:40:34 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	get_check_lst(t_list_int **lsta, t_global *global, char **argv)
 		}		
 		if (!num || !check_double(*lsta))
 			return (0);
+		if (is_sorted_s_to_b(*lsta, global->argc - 1))
+			return (2);
 	}
 	return (1);
 }
@@ -59,6 +61,7 @@ int	main(int argc, char **argv)
 	t_list_int		*lsta;
 	t_list_int		*lstb;
 	t_global		global;
+	int				sorted;
 
 	lsta = NULL;
 	lstb = NULL;
@@ -68,20 +71,15 @@ int	main(int argc, char **argv)
 		{
 			return (clear(&lsta, &lstb, &global, -1));
 		}
-		if (!get_check_lst(&lsta, &global, argv) ||
-			!(sorting(global.argc - 1, &lsta, &lstb, &global, 0)))
+		sorted = get_check_lst(&lsta, &global, argv);
+		if (!sorted)
+		{
+			return (clear(&lsta, &lstb, &global, -1));
+		}
+		if (sorted == 1 && !(sorting(global.argc - 1, &lsta, &lstb, &global, 0)))
 		{
 			return (clear(&lsta, &lstb, &global, -1));
 		}
 	}
-	// printf("\033[32mLIST a :\n");
-	// printlst_int(lsta);
-	// printf("\033[32mLIST b :\n");
-	// printlst_int(lstb);
-	// printf("\033[35mNombre d'opération :%d\033[0m\n", global.nbr_ope);
-	// if (is_sorted_s_to_b(lsta, global.argc - 1))
-	// 	printf("\n\033[33mIts SORTED\033[0m\n");
-	// else
-	// 	printf("\033[30mNot sorted...\033[0m\n");
 	return (clear(&lsta, &lstb, &global, 0));
 }
