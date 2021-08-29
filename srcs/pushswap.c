@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 04:23:39 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/27 17:40:34 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/29 17:34:03 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,27 @@ int	get_check_lst(t_list_int **lsta, t_global *global, char **argv)
 	return (1);
 }
 
+void	check_ope(t_global *global)
+{
+	t_list	*tmp;
+	char	*str;
+	int		i;
+
+	tmp = global->ope;
+	while (tmp)
+	{
+		i = 0;
+		str = (char *)tmp->content;
+		while (str[i])
+		{
+			write(1, &str[i], 1);
+			i++;
+		}
+		write(1, "\n", 1);
+		tmp = tmp->next;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_list_int		*lsta;
@@ -76,10 +97,15 @@ int	main(int argc, char **argv)
 		{
 			return (clear(&lsta, &lstb, &global, -1));
 		}
-		if (sorted == 1 && !(sorting(global.argc - 1, &lsta, &lstb, &global, 0)))
+		// if (sorted == 1 && argc <= 5 && !(sort_five(&lsta, &lstb, &global)))
+		// {
+		// 	return (clear(&lsta, &lstb, &global, -1));
+		// }
+		if (sorted == 1 && /*argc > 5 && */!(sorting(global.argc - 1, &lsta, &lstb, &global, 0)))
 		{
 			return (clear(&lsta, &lstb, &global, -1));
 		}
+		check_ope(&global);
 	}
 	return (clear(&lsta, &lstb, &global, 0));
 }

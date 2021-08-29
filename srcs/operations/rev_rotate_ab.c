@@ -6,13 +6,13 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:39:36 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/27 17:39:37 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/29 17:32:52 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	rev_rotate_ab(t_list_int **lsta, t_list_int **lstb, t_global *global)
+int	rev_rotate_ab(t_list_int **lsta, t_list_int **lstb, t_global *global)
 {
 	t_list_int	*tmpa;
 	t_list_int	*tmp_bisa;
@@ -34,5 +34,8 @@ void	rev_rotate_ab(t_list_int **lsta, t_list_int **lstb, t_global *global)
 	ft_lstadd_front_int(lstb, tmpb);
 	(*lstb)->next = tmp_bisb;
 	global->nbr_ope++;
-	write(1, "rrr\n", 4);
+	if (!add_ope(global, "rrr", 3))
+		return (0);
+	// write(1, "rrr\n", 4);
+	return (1);
 }

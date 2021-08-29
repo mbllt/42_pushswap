@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:40:16 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/27 17:40:17 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/29 16:29:12 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int	init_global(t_global *global, int argc)
 	if (!(init_str(global, argc)))
 		return (0);
 	global->changed = 0;
+	global->ope = NULL;
 	return (1);
 }

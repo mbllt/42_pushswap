@@ -6,13 +6,13 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:39:50 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/27 17:39:51 by mballet          ###   ########.fr       */
+/*   Updated: 2021/08/29 17:33:03 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	rotate(t_list_int **lst, t_global *global, int stack)
+int	rotate(t_list_int **lst, t_global *global, int stack)
 {
 	t_list_int	*tmp;
 	t_list_int	*tmp_bis;
@@ -24,7 +24,14 @@ void	rotate(t_list_int **lst, t_global *global, int stack)
 	*lst = tmp_bis;
 	global->nbr_ope++;
 	if (stack == 0 || stack == 2)
-		write(1, "ra\n", 3);
+		if (!add_ope(global, "ra", 2))
+			return (0);
 	if (stack == 1 || stack == 3)
-		write(1, "rb\n", 3);
+		if (!add_ope(global, "rb", 2))
+			return (0);
+	// if (stack == 0 || stack == 2)
+	// 	write(1, "ra\n", 3);
+	// if (stack == 1 || stack == 3)
+	// 	write(1, "rb\n", 3);
+	return (1);
 }
