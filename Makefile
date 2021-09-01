@@ -14,11 +14,13 @@ SRCS_FILES		= operations/swap.c \
 				  utils/find_big_small.c \
 				  utils/is_sorted.c \
 				  utils/add_ope.c \
+				  utils/check_ope.c \
+				  utils/print_ope.c \
 				  pushswap.c \
 				  sorting.c \
 				  find_median.c \
 				  seperate.c \
-				  sort_five.c \
+				  sort_six.c \
 
 OBJS_DIR		= .objs
 

@@ -42,6 +42,8 @@ int long	find_smallest(t_list_int *lst);
 int			is_sorted_s_to_b(t_list_int *lst, int nbr_sorting);
 int			is_sorted_b_to_s(t_list_int *lst, int nbr_sorting);
 int			add_ope(t_global *global, char *str, int size);
-int			sort_five(t_list_int **lsta, t_list_int **lstb, t_global *global);
+int			sort_six(t_list_int **lsta, t_list_int **lstb, t_global *global);
+int			check_ope(t_global *global);
+void		print_ope(t_global *global);
 
 #endif

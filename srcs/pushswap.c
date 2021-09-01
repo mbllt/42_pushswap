@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mballet <ballet.mia.6@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 04:23:39 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/29 17:34:03 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/01 16:09:41 by mballet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	get_check_lst(t_list_int **lsta, t_global *global, char **argv)
 		num = is_strnum(argv[i]);
 		while (num && i < global->argc)
 		{
+			num = is_strnum(argv[i]);
 			if (!(get_lst(lsta, i, argv)))
 				return (0);
 			i++;
@@ -54,27 +55,6 @@ int	get_check_lst(t_list_int **lsta, t_global *global, char **argv)
 			return (2);
 	}
 	return (1);
-}
-
-void	check_ope(t_global *global)
-{
-	t_list	*tmp;
-	char	*str;
-	int		i;
-
-	tmp = global->ope;
-	while (tmp)
-	{
-		i = 0;
-		str = (char *)tmp->content;
-		while (str[i])
-		{
-			write(1, &str[i], 1);
-			i++;
-		}
-		write(1, "\n", 1);
-		tmp = tmp->next;
-	}
 }
 
 int	main(int argc, char **argv)
@@ -92,20 +72,29 @@ int	main(int argc, char **argv)
 		{
 			return (clear(&lsta, &lstb, &global, -1));
 		}
+		// printf("HERE 1\n");
 		sorted = get_check_lst(&lsta, &global, argv);
 		if (!sorted)
 		{
 			return (clear(&lsta, &lstb, &global, -1));
 		}
-		// if (sorted == 1 && argc <= 5 && !(sort_five(&lsta, &lstb, &global)))
-		// {
-		// 	return (clear(&lsta, &lstb, &global, -1));
-		// }
-		if (sorted == 1 && /*argc > 5 && */!(sorting(global.argc - 1, &lsta, &lstb, &global, 0)))
+		// printf("HERE 2\n");
+		if (sorted == 1 && argc <= 7 && !(sort_six(&lsta, &lstb, &global)))
 		{
 			return (clear(&lsta, &lstb, &global, -1));
 		}
-		check_ope(&global);
+		// printf("HERE 3\n");
+		if (sorted == 1 && argc > 7
+			&& !(sorting(global.argc - 1, &lsta, &lstb, &global, 0))
+			&& !check_ope(&global))
+		{
+			return (clear(&lsta, &lstb, &global, -1));
+		}
+		// printf("HERE 4\n");
+		print_ope(&global);
 	}
+	// if (is_sorted_s_to_b(lsta, argc - 1))
+	// 	printf(">>>>> Sorted\n");
+	// printf("nbr ope %d\n", global.nbr_ope);
 	return (clear(&lsta, &lstb, &global, 0));
 }

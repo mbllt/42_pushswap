@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   seperate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mballet <ballet.mia.6@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:40:42 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/27 17:40:43 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/01 15:21:39 by mballet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ void	seperate(t_list_int **actual, t_list_int **other, t_global *global, int nbr
 	t_list_int	*tmp;
 	int			i;
 	int			nbr;
+	int			save_size;
 
 	i = 0;
 	nbr = 0;
 	tmp = *actual;
+	save_size = ft_lstsize_int(*actual);
 	while (i < nbr_sorting)
 	{
 		if (*(tmp->content) < global->median && (stack == 0 || stack == 2))
@@ -45,9 +47,12 @@ void	seperate(t_list_int **actual, t_list_int **other, t_global *global, int nbr
 		i++;
 	}
 	i = 0;
-	while (i < nbr)
+	if (save_size != nbr_sorting)
 	{
-		rev_rotate(actual, global, stack);
-		i++;
+		while (i < nbr)
+		{
+			rev_rotate(actual, global, stack);
+			i++;
+		}
 	}
 }
