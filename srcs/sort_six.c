@@ -137,7 +137,7 @@ int	sort_six(t_list_int **lsta, t_list_int **lstb, t_global *global)
 	seperate(lsta, lstb, global, global->argc - 1, 0);
 	if (!sort_a(ft_lstsize_int(*lsta), lsta, global, 0))
 		return (0);
-	if (!sort_b(ft_lstsize_int(*lstb), lstb, global, 2))
+	if (!sort_b(ft_lstsize_int(*lstb), lstb, global, 1))
 		return (0);
 	if (!push_on_a(lsta, lstb, global))
 		return (0);

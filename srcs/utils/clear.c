@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:40:07 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/29 17:16:19 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/07 12:12:30 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ short int	clear(t_list_int **lsta, t_list_int **lstb, t_global *global, int i)
 		ft_lstclear(&global->ope, del);
 	free_global(global);	
 	if (i == -1)
-	{
 		write(1, "Error\n", 6);
-		return (-1);
-	}
-	return (0);
+	return (i);
 }
