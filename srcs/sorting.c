@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:40:46 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/07 14:00:53 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/07 15:09:29 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ int	sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *
 	{
 		return (sort_three(nbr_sorting, actual, other, global, stack));
 	}
-	if (!(find_median(nbr_sorting, *actual, global, &(global->str), stack)))
+	if (!(find_median(nbr_sorting, *actual, global, stack)))
 		return (0);
 	seperate(actual, other, global, nbr_sorting, stack);
 	if (!(stack % 2))

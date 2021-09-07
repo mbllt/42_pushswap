@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_six.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/07 15:04:32 by mballet           #+#    #+#             */
+/*   Updated: 2021/09/07 15:14:40 by mballet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
 static int	sort_a(int nbr_sorting, t_list_int **actual, t_global *global, int stack)
@@ -132,7 +144,7 @@ int	sort_six(t_list_int **lsta, t_list_int **lstb, t_global *global)
 	{
 		return (sort_a(global->argc - 1, lsta, global, 0));
 	}
-	if (!find_median(global->argc - 1, *lsta, global, &(global->str), 0))
+	if (!find_median(global->argc - 1, *lsta, global, 0))
 		return (0);
 	seperate(lsta, lstb, global, global->argc - 1, 0);
 	if (!sort_a(ft_lstsize_int(*lsta), lsta, global, 0))

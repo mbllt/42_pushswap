@@ -1,11 +1,11 @@
 #!/bin/bash
 
 TMP='.tmp'
-PLUS=5
-START=-15
-let END=START+PLUS
+PLUS=10
+START=-1015
+let END=START+500
 COUNTER=0
-while [  $COUNTER -lt 10 ]; do
+while [  $COUNTER -lt 20 ]; do
 	NBR=`ruby -e "puts ($START..$END).to_a.shuffle.join(' ')"`
 	# echo "${NBR}"
 	./push_swap $NBR > $TMP
