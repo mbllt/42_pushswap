@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 12:54:09 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/18 19:53:39 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/07 13:43:37 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 char			*ft_itoa(int n);
 char			**ft_split(char const *s, char c);
-char			*ft_strmapi(char const *s, char(*f)(unsigned int, char));
+char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 t_list			*ft_lstnew(void *content);
 t_list_int		*ft_lstnew_int(long int *content);
 void			ft_lstadd_front(t_list **alst, t_list *new);
