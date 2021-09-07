@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_ope.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/07 13:50:13 by mballet           #+#    #+#             */
+/*   Updated: 2021/09/07 13:51:07 by mballet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
 static int	add_lst(t_list **lst, char *str, int size)
@@ -5,7 +17,7 @@ static int	add_lst(t_list **lst, char *str, int size)
 	t_list	*tmp_nnn;
 	char	*tmp_c;
 	int		i;
-	
+
 	tmp_nnn = (*lst)->next->next->next;
 	tmp_c = malloc(sizeof(char) * size);
 	if (!tmp_c)
@@ -79,17 +91,15 @@ static int	check(char *str_n, char *str_nn)
 	return (1);
 }
 
-int check_ope(t_global *global)
+int	check_ope(t_global *global)
 {
 	char	*str_n;
 	char	*str_nn;
-	// int		i;
 	t_list	*tmp;
 
 	tmp = global->ope;
 	while (global->ope && global->ope->next && global->ope->next->next)
 	{
-		// i = 0;
 		str_n = (char *)global->ope->next->content;
 		str_nn = (char *)global->ope->next->next->content;
 		if (!check(str_n, str_nn))

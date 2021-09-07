@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:39:46 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/29 17:33:00 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/07 13:45:35 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ int	rotate_ab(t_list_int **lsta, t_list_int **lstb, t_global *global)
 	global->nbr_ope++;
 	if (!add_ope(global, "rr", 2))
 		return (0);
-	// write(1, "rr\n", 3);
 	return (1);
 }

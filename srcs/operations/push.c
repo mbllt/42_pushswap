@@ -6,11 +6,22 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:39:32 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/29 17:32:46 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/07 13:49:30 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+static int	norm(int stack, t_global *global)
+{
+	if (stack == 1 || stack == 3)
+		if (!add_ope(global, "pa", 2))
+			return (0);
+	if (stack == 0 || stack == 2)
+		if (!add_ope(global, "pb", 2))
+			return (0);
+	return (1);
+}
 
 int	push(t_list_int **ontop, t_list_int **from, t_global *global, int stack)
 {
@@ -33,16 +44,8 @@ int	push(t_list_int **ontop, t_list_int **from, t_global *global, int stack)
 		ft_lstdelone_int(*from, del_int);
 		*from = temp->next;
 		global->nbr_ope++;
-		if (stack == 1 || stack == 3)
-			if (!add_ope(global, "pa", 2))
-				return (0);
-		if (stack == 0 || stack == 2)
-			if (!add_ope(global, "pb", 2))
-				return (0);
-		// if (stack == 1 || stack == 3)
-		// 	write(1, "pa\n", 3);
-		// if (stack == 0 || stack == 2)
-		// 	write(1, "pb\n", 3);
+		if (!norm(stack, global))
+			return (0);
 	}
 	return (1);
 }

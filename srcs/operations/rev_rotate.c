@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:39:42 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/29 17:32:56 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/07 13:45:24 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,5 @@ int	rev_rotate(t_list_int **lst, t_global *global, int stack)
 	if (stack == 1 || stack == 3)
 		if (!add_ope(global, "rrb", 3))
 			return (0);
-	// if (stack == 0 || stack == 2)
-	// 	write(1, "rra\n", 4);
-	// if (stack == 1 || stack == 3)
-	// 	write(1, "rrb\n", 4);
 	return (1);
 }
