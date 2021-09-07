@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:40:46 by mballet           #+#    #+#             */
-/*   Updated: 2021/08/29 17:18:44 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/07 14:00:53 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,9 +123,8 @@ static int	sort_three(int nbr_sorting, t_list_int **actual, t_list_int **other, 
 	return (1);
 }
 
-int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *global, int stack)
+int	sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *global, int stack)
 {
-	
 	if (nbr_sorting <= 3)
 	{
 		return (sort_three(nbr_sorting, actual, other, global, stack));
@@ -135,16 +134,16 @@ int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *
 	seperate(actual, other, global, nbr_sorting, stack);
 	if (!(stack % 2))
 	{
-		if (!sorting(nbr_sorting / 2 + nbr_sorting % 2, actual, other, global, 0))				// dans a et va dans a
+		if (!sorting(nbr_sorting / 2 + nbr_sorting % 2, actual, other, global, 0))
 			return (0);
-		if (!sorting(nbr_sorting / 2, other, actual, global, 3))									// dans a et va dans b
+		if (!sorting(nbr_sorting / 2, other, actual, global, 3))
 			return (0);
 	}
 	else
 	{
-		if (!sorting(nbr_sorting / 2 + nbr_sorting % 2, actual, other, global, 1))				// dans b et va dans b
+		if (!sorting(nbr_sorting / 2 + nbr_sorting % 2, actual, other, global, 1))
 			return (0);
-		if (!sorting(nbr_sorting / 2, other, actual, global, 2))									// dans b et va dans a
+		if (!sorting(nbr_sorting / 2, other, actual, global, 2))
 			return (0);
 	}
 	if (stack == 2)
@@ -153,3 +152,12 @@ int sorting(int nbr_sorting, t_list_int **actual, t_list_int **other, t_global *
 		stack_on(actual, other, nbr_sorting, global, stack);
 	return (1);
 }
+//if (!sorting(nbr_sorting / 2 + nbr_sorting % 2, actual, other, global, 0))
+//			>> dans a et va dans a
+//if (!sorting(nbr_sorting / 2, other, actual, global, 3)
+//			>> dans a et va dans b
+
+//if (!sorting(nbr_sorting / 2 + nbr_sorting % 2, actual, other, global, 1))
+//			>> dans b et va dans b
+//if (!sorting(nbr_sorting / 2, other, actual, global, 2))
+//			>> dans b et va dans a

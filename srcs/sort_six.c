@@ -47,9 +47,9 @@ static int	sort_a(int nbr_sorting, t_list_int **actual, t_global *global, int st
 			else
 			{
 				if (!swap(actual, global, stack))
-				return (0);
+					return (0);
 				if (!rev_rotate(actual, global, stack))
-				return (0);
+					return (0);
 			}
 		}
 	}
@@ -103,9 +103,9 @@ static int	sort_b(int nbr_sorting, t_list_int **actual, t_global *global, int st
 			else
 			{
 				if (!swap(actual, global, stack))
-				return (0);
+					return (0);
 				if (!rev_rotate(actual, global, stack))
-				return (0);
+					return (0);
 			}
 		}
 	}

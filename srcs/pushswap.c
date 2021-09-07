@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 04:23:39 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/07 13:22:42 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/07 13:54:54 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	get_lst(t_list_int **lsta, int i, char **argv)
 	ft_lstadd_back_int(lsta, tmp);
 	return (1);
 }
-	
+
 int	get_check_lst(t_list_int **lsta, t_global *global, char **argv)
 {
 	int	i;
@@ -71,32 +71,19 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		if (!init_global(&global, argc))
-		{
-			// printf("HERE 1\n");
 			return (clear(&lsta, &lstb, &global, -1));
-		}
 		sorted = get_check_lst(&lsta, &global, argv);
 		if (!sorted)
-		{
-			// printf("HERE 2\n");
 			return (clear(&lsta, &lstb, &global, -1));
-		}
 		if (sorted == 1 && argc <= 7 && !(sort_six(&lsta, &lstb, &global)))
-		{
 			return (clear(&lsta, &lstb, &global, -1));
-		}
-		// printf("HERE 3\n");
 		if (sorted == 1 && argc > 7
 			&& !(sorting(global.argc - 1, &lsta, &lstb, &global, 0))
 			&& !check_ope(&global))
 		{
 			return (clear(&lsta, &lstb, &global, -1));
 		}
-		// printf("HERE 4\n");
 		print_ope(&global);
 	}
-	// if (is_sorted_s_to_b(lsta, argc - 1))
-	// 	printf(">>>>> Sorted\n");
-	// printf("nbr ope %d\n", global.nbr_ope);
 	return (clear(&lsta, &lstb, &global, 0));
 }
