@@ -3,7 +3,7 @@
 TMP='.tmp'
 PLUS=5
 START=-1015
-let END=START+500
+let END=START+100
 COUNTER=0
 while [  $COUNTER -lt 20 ]; do
 	NBR=`ruby -e "puts ($START..$END).to_a.shuffle.join(' ')"`
