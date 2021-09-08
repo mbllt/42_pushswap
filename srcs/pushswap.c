@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 04:23:39 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/07 13:54:54 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 10:13:11 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	main(int argc, char **argv)
 		if (sorted == 1 && argc <= 7 && !(sort_six(&lsta, &lstb, &global)))
 			return (clear(&lsta, &lstb, &global, -1));
 		if (sorted == 1 && argc > 7
-			&& !(sorting(global.argc - 1, &lsta, &lstb, &global, 0))
+			&& !(sorting(&lsta, &lstb, &global, 0))
 			&& !check_ope(&global))
 		{
 			return (clear(&lsta, &lstb, &global, -1));

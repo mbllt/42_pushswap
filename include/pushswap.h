@@ -10,13 +10,16 @@
 
 typedef struct	s_global
 {
-	int		nbr_ope;
-	int		median;
-	int		lst_size;
-	int		argc;
-	int		*str;
-	int		changed;
-	t_list	*ope;
+	int			nbr_ope;
+	int			median;
+	int			lst_size;
+	int			argc;
+	int			*str;
+	int			changed;
+	int			nbr_sort;
+	t_list		*ope;
+	t_list_int	tmp;
+	int			nbr;
 }				t_global;
 
 void		printlst(t_list_int *lst);
@@ -33,10 +36,10 @@ int			rev_rotate_ab(t_list_int **lsta, t_list_int **lstb, t_global *global);
 int			init_global(t_global *global, int argc);
 void		free_global(t_global *global);
 int			check_double(t_list_int *lst);
-int 		sorting(int nbr_sorting, t_list_int **lsta, t_list_int **lstb, t_global *global, int stack);
-int			find_median(int nbr_sorting, t_list_int *lst, t_global *global, int stack);
+int 		sorting(t_list_int **lsta, t_list_int **lstb, t_global *global, int stack);
+int			find_median(t_list_int *lst, t_global *global, int stack);
 short int	clear(t_list_int **lsta, t_list_int **lstb, t_global *global, int i);
-void		seperate(t_list_int **actual, t_list_int **other, t_global *global, int nbr_sorting, int stack);
+int			seperate(t_list_int **actual, t_list_int **other, t_global *global, int stack);
 int long	find_biggest(t_list_int *lst);
 int long	find_smallest(t_list_int *lst);
 int			is_sorted_s_to_b(t_list_int *lst, int nbr_sorting);

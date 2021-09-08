@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 15:04:32 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/07 15:14:40 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 10:30:21 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,9 +144,10 @@ int	sort_six(t_list_int **lsta, t_list_int **lstb, t_global *global)
 	{
 		return (sort_a(global->argc - 1, lsta, global, 0));
 	}
-	if (!find_median(global->argc - 1, *lsta, global, 0))
+	if (!find_median(*lsta, global, 0))
 		return (0);
-	seperate(lsta, lstb, global, global->argc - 1, 0);
+	if (!seperate(lsta, lstb, global, 0))
+		return (0);
 	if (!sort_a(ft_lstsize_int(*lsta), lsta, global, 0))
 		return (0);
 	if (!sort_b(ft_lstsize_int(*lstb), lstb, global, 1))
