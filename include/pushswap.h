@@ -18,8 +18,9 @@ typedef struct	s_global
 	int			changed;
 	int			nbr_sort;
 	t_list		*ope;
-	t_list_int	tmp;
+	t_list_int	*tmp;
 	int			nbr;
+	int			i;
 }				t_global;
 
 void		printlst(t_list_int *lst);

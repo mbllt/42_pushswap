@@ -1,9 +1,9 @@
 #!/bin/bash
 
 TMP='.tmp'
-PLUS=1
-START=1015
-let END=START+3
+PLUS=5
+START=-1015
+let END=START+500
 COUNTER=0
 while [  $COUNTER -lt 20 ]; do
 	NBR=`ruby -e "puts ($START..$END).to_a.shuffle.join(' ')"`
