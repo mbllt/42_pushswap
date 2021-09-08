@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 04:23:39 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 10:13:11 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 14:43:15 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	get_lst(t_list_int **lsta, int i, char **argv)
 	if (!nbr)
 		return (0);
 	*nbr = num;
+	tmp = NULL;
 	tmp = ft_lstnew_int(nbr);
 	if (!tmp)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 13:50:13 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/07 13:51:07 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 14:48:56 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ static int	add_lst(t_list **lst, char *str, int size)
 	char	*tmp_c;
 	int		i;
 
+	tmp_nnn = NULL;
 	tmp_nnn = (*lst)->next->next->next;
+	tmp_c = NULL;
 	tmp_c = malloc(sizeof(char) * size);
 	if (!tmp_c)
 		return (0);
@@ -36,10 +38,18 @@ static int	add_lst(t_list **lst, char *str, int size)
 	return (1);
 }
 
-static int	supress_two(t_list **lst, char *str_n)
+static void	supress_two(t_list **lst, t_list *tmp_nnn)
+{
+	ft_lstdelone((*lst)->next->next, del);
+	ft_lstdelone((*lst)->next, del);
+	(*lst)->next = tmp_nnn;
+}
+
+static int	add_and_supress(t_list **lst, char *str_n)
 {
 	t_list	*tmp_nnn;
 
+	tmp_nnn = NULL;
 	tmp_nnn = (*lst)->next->next->next;
 	if (!ft_strncmp((const char *)str_n, (const char *)"sa", 2))
 	{
@@ -58,9 +68,7 @@ static int	supress_two(t_list **lst, char *str_n)
 	}
 	else
 	{
-		ft_lstdelone((*lst)->next->next, del);
-		ft_lstdelone((*lst)->next, del);
-		(*lst)->next = tmp_nnn;
+		supress_two(lst, tmp_nnn);
 	}
 	return (1);
 }
@@ -104,7 +112,7 @@ int	check_ope(t_global *global)
 		str_nn = (char *)global->ope->next->next->content;
 		if (!check(str_n, str_nn))
 		{
-			if (!supress_two(&(global->ope), str_n))
+			if (!add_and_supress(&(global->ope), str_n))
 				return (0);
 		}
 		global->ope = global->ope->next;

@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:01:07 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/07 13:52:56 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 14:41:17 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ void	print_ope(t_global *global)
 	int		i;
 	t_list	*tmp;
 
+	tmp = NULL;
 	tmp = global->ope;
 	while (global->ope)
 	{
 		i = 0;
+		str = NULL;
 		str = (char *)global->ope->content;
 		while (str[i])
 		{

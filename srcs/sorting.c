@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:40:46 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 13:41:09 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 14:42:59 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	send_stack_odd(t_list_int **actual, t_list_int **other,
 int	sorting(t_list_int **actual, t_list_int **other,
 	t_global *global, int stack)
 {
-	int			nbr_sort_tmp;
+	int	nbr_sort_tmp;
 
 	nbr_sort_tmp = global->nbr_sort;
 	if (nbr_sort_tmp <= 3)

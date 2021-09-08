@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 13:36:03 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/07 13:36:04 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 14:53:07 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ char	*ft_realloc(char *str, size_t size)
 
 	if (!str)
 		return (NULL);
+	str2 = NULL;
 	str2 = malloc(sizeof(char) * size);
 	if (!str2)
 	{
