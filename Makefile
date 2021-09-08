@@ -21,6 +21,10 @@ SRCS_FILES		= operations/swap.c \
 				  find_median.c \
 				  seperate.c \
 				  sort_six.c \
+				  sort_a.c \
+				  sort_b.c \
+				  sort_a_six.c \
+				  sort_b_six.c \
 
 OBJS_DIR		= .objs
 

@@ -49,5 +49,10 @@ int			add_ope(t_global *global, char *str, int size);
 int			sort_six(t_list_int **lsta, t_list_int **lstb, t_global *global);
 int			check_ope(t_global *global);
 void		print_ope(t_global *global);
+int			sort_a(t_list_int **actual, t_global *global, int stack);
+int			sort_b(t_list_int **actual, t_global *global, int stack);
+int			sort_a_six(int nbr_sorting, t_list_int **actual, t_global *global, int stack);
+int			sort_b_six(int nbr_sorting, t_list_int **actual, t_global *global, int stack);
+
 
 #endif
