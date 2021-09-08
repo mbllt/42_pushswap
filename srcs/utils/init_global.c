@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:40:16 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 11:27:36 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 15:20:36 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int	init_global(t_global *global, int argc)
 	global->changed = 0;
 	global->ope = NULL;
 	global->nbr_sort = argc - 1;
+	global->tmp = NULL;
 	return (1);
 }

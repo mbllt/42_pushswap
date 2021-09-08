@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:39:36 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 14:45:39 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 15:58:09 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,14 @@ int	rev_rotate_ab(t_list_int **lsta, t_list_int **lstb, t_global *global)
 	t_list_int	*tmpb;
 	t_list_int	*tmp_bisb;
 
-	tmpa = NULL;
 	tmpa = ft_lstlast_int(*lsta);
-	tmp_bisa = NULL;
 	tmp_bisa = *lsta;
 	while ((*lsta)->next->next)
 		*lsta = (*lsta)->next;
 	(*lsta)->next = NULL;
 	ft_lstadd_front_int(lsta, tmpa);
 	(*lsta)->next = tmp_bisa;
-	tmpb = NULL;
 	tmpb = ft_lstlast_int(*lstb);
-	tmp_bisb = NULL;
 	tmp_bisb = *lstb;
 	while ((*lstb)->next->next)
 		*lstb = (*lstb)->next;

@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:39:42 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 14:38:05 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 15:58:21 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ int	rev_rotate(t_list_int **lst, t_global *global, int stack)
 	t_list_int	*tmp;
 	t_list_int	*tmp_bis;
 
-	tmp = NULL;
 	tmp = ft_lstlast_int(*lst);
-	tmp_bis = NULL;
 	tmp_bis = *lst;
 	while ((*lst)->next->next)
 		*lst = (*lst)->next;

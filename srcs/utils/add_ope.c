@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 13:49:52 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/07 13:50:02 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 15:59:34 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	add_ope(t_global *global, char *str, int size)
 	char	*tmp;
 	int		i;
 
-	tmp = NULL;
 	tmp = malloc(sizeof(char) * size);
 	if (!tmp)
 		return (0);
@@ -29,7 +28,6 @@ int	add_ope(t_global *global, char *str, int size)
 		i++;
 	}
 	tmp[i] = 0;
-	new = NULL;
 	new = ft_lstnew(tmp);
 	if (!new)
 		return (0);

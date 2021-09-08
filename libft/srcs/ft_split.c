@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 13:38:28 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 14:53:20 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 15:55:44 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	size = nbr_str(s, c);
-	dest = NULL;
 	dest = (char **)malloc(sizeof(char *) * size + sizeof(char *));
 	if (!(dest))
 		return (NULL);
@@ -85,6 +84,7 @@ char	**ft_split(char const *s, char c)
 	{
 		start = find_start(s, c, start + len);
 		len = find_len(s, c, start);
+		dest[i] = NULL;
 		dest[i] = ft_substr(s, start, len);
 		if (!(dest[i]) && free_malloc(dest, i - 1))
 			return (NULL);

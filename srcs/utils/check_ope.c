@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 13:50:13 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 14:48:56 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 15:59:45 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ static int	add_lst(t_list **lst, char *str, int size)
 	char	*tmp_c;
 	int		i;
 
-	tmp_nnn = NULL;
 	tmp_nnn = (*lst)->next->next->next;
-	tmp_c = NULL;
 	tmp_c = malloc(sizeof(char) * size);
 	if (!tmp_c)
 		return (0);
@@ -105,10 +103,13 @@ int	check_ope(t_global *global)
 	char	*str_nn;
 	t_list	*tmp;
 
+	tmp = NULL;
 	tmp = global->ope;
 	while (global->ope && global->ope->next && global->ope->next->next)
 	{
+		str_n = NULL;
 		str_n = (char *)global->ope->next->content;
+		str_nn = NULL;
 		str_nn = (char *)global->ope->next->next->content;
 		if (!check(str_n, str_nn))
 		{

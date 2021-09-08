@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 13:36:59 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 14:51:58 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 15:51:27 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	lst_cpy_int(t_list_int *from, t_list_int **cpy)
 	{
 		while (from->next)
 		{
-			tmp = NULL;
 			from = from->next;
 			tmp = ft_lstnew_int(from->content);
 			if (!tmp)
@@ -45,7 +44,6 @@ int	lst_cpy(t_list *from, t_list **cpy)
 	{
 		while (from->next)
 		{
-			tmp = NULL;
 			from = from->next;
 			tmp = ft_lstnew(from->content);
 			if (!tmp)

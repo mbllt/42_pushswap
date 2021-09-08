@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 13:38:32 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/07 13:38:33 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 15:55:57 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ char	**ft_strdup_double(char **str, int size)
 	int		i;
 	int		j;
 
-	tab = NULL;
 	tab = malloc(sizeof(char *) * size);
 	if (!tab)
 		return (NULL);
 	i = 0;
 	while (i < size)
 	{
+		tab[i] = NULL;
 		tab[i] = (char *)malloc(sizeof(char) * (ft_strlen(str[i]) + 1));
 		if (!(tab[i]))
 			return (NULL);

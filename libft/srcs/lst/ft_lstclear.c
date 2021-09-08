@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 18:30:47 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 14:50:51 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 15:50:48 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_lstclear_int(t_list_int **lst, void (*del)(long int *))
 	{
 		while (*lst != NULL)
 		{
-			temp = NULL;
 			temp = (*lst)->next;
 			ft_lstdelone_int(*lst, del);
 			*lst = temp;
@@ -36,7 +35,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	{
 		while (*lst != NULL)
 		{
-			temp = NULL;
 			temp = (*lst)->next;
 			ft_lstdelone(*lst, del);
 			*lst = temp;

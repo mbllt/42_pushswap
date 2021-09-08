@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mballet <mballet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 12:01:35 by mballet           #+#    #+#             */
-/*   Updated: 2020/12/02 17:28:27 by mballet          ###   ########lyon.fr   */
+/*   Updated: 2021/09/08 15:53:42 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ char	*ft_itoa(int n)
 	int		size;
 
 	size = size_itoa(n);
-	str = NULL;
 	str = (char *)malloc(sizeof(char) * size + 1);
 	if (str == NULL)
 		return (NULL);

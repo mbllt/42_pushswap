@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 15:38:53 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 14:54:09 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 15:57:28 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	size = find_size(s, start);
-	str = NULL;
 	if (size > len)
 		str = (char *)malloc(sizeof(char) * (len + 1));
 	else

@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:40:04 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 14:40:22 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 15:59:39 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	check_double(t_list_int *lst)
 {
 	t_list_int	*tmp;
 
-	tmp = NULL;
 	tmp = lst;
 	while (lst)
 	{

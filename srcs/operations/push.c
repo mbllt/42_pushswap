@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:39:32 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/07 13:49:30 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 15:57:53 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int	push(t_list_int **ontop, t_list_int **from, t_global *global, int stack)
 	t_list_int	*temp;
 	long int	*nbr;
 
-	temp = NULL;
-	nbr = NULL;
 	if (*from)
 	{
 		nbr = malloc(sizeof(int));

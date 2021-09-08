@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mballet <mballet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 17:01:53 by mballet           #+#    #+#             */
-/*   Updated: 2020/12/01 12:03:58 by mballet          ###   ########lyon.fr   */
+/*   Updated: 2021/09/08 15:56:15 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (s1 == 0 || s2 == 0)
 		return (NULL);
-	tab = NULL;
 	tab = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!tab)
 		return (NULL);

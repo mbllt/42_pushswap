@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:40:27 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 14:41:42 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/08 16:01:12 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	fill_in_str(t_list_int *actual, int **str, int nbr_sorting)
 	t_list_int	*tmp;
 	int			i;
 
-	tmp = NULL;
 	tmp = actual;
 	i = 0;
 	while (i < nbr_sorting)
