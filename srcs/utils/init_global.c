@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:40:16 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 15:20:36 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/09 09:52:28 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	init_str(t_global *global, int size)
 {
 	global->str = NULL;
-	global->str = (int *)malloc(sizeof(int) * size);
+	global->str = malloc(sizeof(long int) * size);
 	if (!global->str)
 		return (0);
 	global->str[size] = 0;

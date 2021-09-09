@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 04:23:39 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 16:01:31 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/09 09:52:56 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	get_lst(t_list_int **lsta, int i, char **argv)
 	num = ft_atoi(argv[i]);
 	if (num > INT_MAX || num < INT_MIN)
 		return (0);
-	nbr = malloc(sizeof(int));
+	nbr = malloc(sizeof(long int));
 	if (!nbr)
 		return (0);
 	*nbr = num;

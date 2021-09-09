@@ -6,17 +6,15 @@ START=-1015
 let END=START+100
 COUNTER=0
 NBR=1
-./push_swap $NBR > $TMP
-# while [  $COUNTER -lt 20 ]; do
-while [  $? -eq 0 ]; do
+while [  $COUNTER -lt 20 ]; do
 	NBR=`ruby -e "puts ($START..$END).to_a.shuffle.join(' ')"`
 	# echo "${NBR}"
 	./push_swap $NBR > $TMP
-	# if [[ $? -eq -1 ]]; then
-	# 	echo ----------- FAIL code -1 -----------
-	# 	echo "${NBR}"
-	# 	exit
-	# fi
+	if [[ $? -eq -1 ]]; then
+		echo ----------- FAIL code -1 -----------
+		echo "${NBR}"
+		exit
+	fi
 	RESULT=$(./checker $NBR < $TMP)
 	echo "${RESULT}"
 	if [[ $RESULT != "OK" ]]; then
@@ -27,5 +25,4 @@ while [  $? -eq 0 ]; do
 	let START=START+PLUS
 	let END=START+PLUS
 	let COUNTER=COUNTER+1
-	./push_swap $NBR > $TMP
 done
