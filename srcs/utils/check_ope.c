@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 13:50:13 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 15:59:45 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/09 15:10:27 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	add_lst(t_list **lst, char *str, int size)
 	int		i;
 
 	tmp_nnn = (*lst)->next->next->next;
-	tmp_c = malloc(sizeof(char) * size);
+	tmp_c = malloc(sizeof(char) * size + 1);
 	if (!tmp_c)
 		return (0);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:39:32 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/09 09:59:38 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/09 15:08:07 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	push(t_list_int **ontop, t_list_int **from, t_global *global, int stack)
 
 	if (*from)
 	{
-		nbr = malloc(sizeof(int));
+		nbr = malloc(sizeof(long int));
 		if (!nbr)
 			return (0);
 		*nbr = *((*from)->content);

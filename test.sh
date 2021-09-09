@@ -2,8 +2,8 @@
 
 TMP='.tmp'
 PLUS=5
-START=-1015
-let END=START+100
+START=0
+let END=START+5
 COUNTER=0
 NBR=1
 while [  $COUNTER -lt 20 ]; do
