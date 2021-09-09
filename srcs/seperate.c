@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:40:42 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 11:48:24 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/09 15:21:25 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static int	push_on_a_or_b(t_list_int **actual, t_list_int **other,
 					return (-1);
 			if (!push(other, actual, global, stack))
 				return (-1);
+			global->tmp = *actual;
 		}
 		else if (*(global->tmp->content) > global->median
 			&& (stack == 1 || stack == 3))
@@ -34,8 +35,10 @@ static int	push_on_a_or_b(t_list_int **actual, t_list_int **other,
 					return (-1);
 			if (!push(other, actual, global, stack))
 				return (-1);
+			global->tmp = *actual;
 		}
-		global->tmp = global->tmp->next;
+		else
+			global->tmp = global->tmp->next;
 	}
 	return (global->nbr);
 }

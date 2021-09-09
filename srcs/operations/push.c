@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:39:32 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/09 15:08:07 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/09 15:16:15 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int	push(t_list_int **ontop, t_list_int **from, t_global *global, int stack)
 		if (!temp)
 			return (0);
 		ft_lstadd_front_int(ontop, temp);
-		temp = *from;
+		temp = (*from)->next;
 		ft_lstdelone_int(*from, del_int);
-		*from = temp->next;
+		*from = temp;
 		global->nbr_ope++;
 		if (!norm(stack, global))
 			return (0);

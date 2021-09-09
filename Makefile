@@ -59,14 +59,14 @@ normal			= \033[0m
 all				: $(NAME)
 
 $(NAME)			:  $(NAME_LIBFT) $(OBJS)
-					$(CC) -o $(NAME) $^ $(NAME_LIBFT)
+					$(CC) $(SANFLAGS) -o $(NAME) $^ $(NAME_LIBFT)
 					@echo "$(yellow)Pushswap is $(green)ready$(normal)"
 
 $(NAME_LIBFT)	:
 					$(MAKE) -C$(LIBFT_FILES) -s
 
 $(OBJS_DIR)/%.o	: $(SRCS_DIR)/%.c $(INCLUDE) | $(OBJS_DIR)
-					$(CC) $(CFLAGS) -o $@ -c $<
+					$(CC) $(SANFLAGS) $(CFLAGS) -o $@ -c $<
 
 $(OBJS_DIR)		:
 					mkdir -p $(OBJS_DIR) $(addprefix $(OBJS_DIR)/,$(PATH_OBJS))
