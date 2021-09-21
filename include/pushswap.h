@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:12:33 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 13:12:34 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/21 19:14:13 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,8 @@ typedef struct s_global
 {
 	int			nbr_ope;
 	int			median;
-	int			lst_size;
 	int			argc;
 	int			*str;
-	int			changed;
 	int			nbr_sort;
 	t_list		*ope;
 	t_list_int	*tmp;

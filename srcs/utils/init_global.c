@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:40:16 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/09 09:52:28 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/21 19:14:10 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ int	init_global(t_global *global, int argc)
 {
 	global->nbr_ope = 0;
 	global->median = 0;
-	global->lst_size = 0;
 	global->argc = argc;
 	if (!(init_str(global, argc)))
 		return (0);
-	global->changed = 0;
 	global->ope = NULL;
 	global->nbr_sort = argc - 1;
 	global->tmp = NULL;

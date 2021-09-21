@@ -6,7 +6,7 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 09:22:52 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/08 15:48:39 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/21 18:32:03 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*str;
 
 	if (!s)
-		return (NULL);	
+		return (NULL);
 	str = ft_strdup(s);
 	if (!str)
 		return (NULL);

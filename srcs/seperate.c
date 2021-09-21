@@ -6,19 +6,23 @@
 /*   By: mballet <mballet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:40:42 by mballet           #+#    #+#             */
-/*   Updated: 2021/09/09 15:21:25 by mballet          ###   ########.fr       */
+/*   Updated: 2021/09/21 19:01:39 by mballet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+static int	norm(int stack)
+{
+	return ((stack == 0 || stack == 2));
+}
 
 static int	push_on_a_or_b(t_list_int **actual, t_list_int **other,
 		t_global *global, int stack)
 {
 	while (++global->i < global->nbr_sort)
 	{
-		if (*(global->tmp->content) < global->median
-			&& (stack == 0 || stack == 2))
+		if (*(global->tmp->content) < global->median && norm(stack))
 		{
 			while (*(global->tmp->content) != *((*actual)->content))
 				if (++global->nbr && !rotate(actual, global, stack))
