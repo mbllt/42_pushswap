@@ -1,3 +1,3 @@
 # push_swap
 
-Le tester HardTest est celui de @UniverseLambda
+Le HardTester est celui de @UniverseLambda
